@@ -1,4 +1,4 @@
-# Passo a Passo: Clonar Repositório e Instalar `prompt-sync`
+# Passo a Passo: Clonar Repositório e Testar os exercícios.
 
 ## 1. Clonar o Repositório
 
