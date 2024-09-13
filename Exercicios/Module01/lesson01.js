@@ -3,7 +3,7 @@ const prompt = require('prompt-sync')();
 // 1. Escreva um programa que recebe um número inteiro e verifica se ele é par ou ímpar
 // utilizando uma estrutura de controle if.
 
-const number = Number(prompt('Digiite um numero: '));
+const number = Number(prompt('Digite um numero: '));
 
 if (number >= 0) {
 
