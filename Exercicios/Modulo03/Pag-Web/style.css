@@ -1,0 +1,304 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+
+}
+
+h1 {
+    color: #4e908c;
+}
+
+header {
+    width: 100%;
+    background-color: #4e908c;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    z-index: 99;
+
+}
+
+nav {
+    width: 60%;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+ul {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+li {
+    list-style: none;
+    font-size: 1.2rem;
+    border-bottom: 1px solid transparent;
+    transition: all 0.2s ease-in-out;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+
+}
+
+li:hover {
+    border-bottom: 1px solid #fff;
+    transform: scale(1.1);
+
+}
+
+span {
+    font-size: 1.5rem;
+    color: #fff;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 60px;
+}
+
+.container {
+    width: 70%;
+    display: grid;
+    grid-template-columns: repeat(2, 60% 35%);
+    align-items: center;
+    grid-gap: 20px;
+    padding-top: 70px;
+}
+
+aside, section {
+    margin: 20px;
+    width: 100%;
+    padding: 20px;
+}
+
+aside {
+    border-left: 1px solid #4e908c;
+}
+
+section, aside {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+
+
+}
+
+img {
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.aside-links {
+    text-decoration: none;
+    color: white;
+    background-color: #4e908c;
+    padding: 5px 10px;
+    border-radius: 10px;
+    border: 1px solid #4e908c;
+    transition: all 0.2s ease-in-out;
+}
+
+.aside-links:hover {
+    background-color: #fff;
+    color: #4e908c;
+}
+
+section>p {
+    width: 100%;
+}
+
+.home {
+    position: relative;
+    width: 65%;
+    height: 500px;
+    overflow: hidden;
+    background: url(assets/home.avif);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    border-radius: 20px;
+
+}
+
+.img-sobre {
+    border-radius: 20px;
+}
+
+.contato {
+    width: 70%;
+    height: 600px;
+    margin-bottom: 100px;
+    background-image: url(assets/view-3d-airplane.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 50px;
+    overflow: hidden;
+    margin-top: 60px;
+}
+
+.contato h1 {
+    margin-top: 20px;
+}
+
+.contato p {
+    color: #657776de;
+    text-align: center;
+}
+
+.container-contato {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form>button {
+    margin-top: 10px;
+    height: 40px;
+    border: none;
+    background-color: #4e908c;
+    color: #fff;
+    cursor: pointer;
+    font-weight: bold;
+
+    transition: all 0.1s ease-in;
+}
+
+form>button:hover {
+    background-color: #fff;
+    border: 1px solid #4e908c86;
+    color: #4e908c;
+}
+
+footer {
+    width: 100%;
+    height: 60px;
+    background-color: #4e908c;
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 50px;
+    opacity: 0;
+    transition: all 0.3s ease-in;
+}
+
+.home:hover .overlay {
+    opacity: 1;
+}
+
+.overlay h2{
+    font-size: 2rem;
+}
+
+
+label {
+    margin-bottom: 10px;
+    font-size: .9rem;
+
+}
+
+input {
+    height: 30px;
+    margin-bottom: 10px;
+  
+}
+
+
+
+textarea,input{
+    border: none;
+    outline: none;
+    border-radius: 5px;
+}
+
+::placeholder {
+    font-size: .8rem;
+    padding: 10px;
+}
+
+@media (max-width: 768px) {
+    header {
+        height: auto;
+        padding: 10px;
+    }
+
+    nav {
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    span {
+        font-size: 1.3rem;
+    }
+
+    ul {
+        margin-bottom: 10px;
+    }
+
+    li>a {
+        font-size: 1rem;
+    }
+
+    main {
+        align-items: start;
+    }
+
+    .container {
+        width: 90%;
+        grid-template-columns: 1fr;
+    }
+
+    .home {
+        width: 90%;
+        margin-top: 60px;
+    }
+
+    .contato {
+        width: 90%;
+    }
+
+    footer {
+        font-size: .8rem;
+    }
+}
