@@ -7,7 +7,6 @@
 .swiper {
     width: 100%;
     height: 500px;
-    border-radius: 20px;
 }
 .swiper-slide {
     display: flex;
@@ -23,6 +22,7 @@
     background-position: center;
     background-size: cover;
     
+    
 }
 
 .slideOne{
@@ -34,6 +34,10 @@
 }
 .slideThree{
         background-image: url(assets/paisagem-3.jpg);
+}
+
+a{
+    cursor: pointer;
 }
 
 li{
