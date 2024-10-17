@@ -1,4 +1,3 @@
-// Inicialização do Swiper
 const swiper = new Swiper('.swiper', {
     loop: true,
     pagination: {

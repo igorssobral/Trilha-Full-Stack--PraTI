@@ -17,7 +17,7 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
-    <title>Landing Page</title>
+    <title>Explora Viagens</title>
     <style></style>
   </head>
   <body class="bg-teal-950">
@@ -53,8 +53,8 @@
             <div
               class="flex flex-col gap-2 justify-center items-center text-center text-white w-full h-full bg-black/50"
             >
-              <h2 class="text-2xl">Conheça o Mundo!</h2>
-              <p class="text-base w-5/6 lg:w-full text-zinc-300">
+              <h2 class="text-4xl">Conheça o Mundo!</h2>
+              <p class="text-base lg:text-lg w-5/6 lg:w-full text-zinc-300">
                 Pacotes de viagem personalizados para destinos incríveis.
               </p>
             </div>
@@ -63,8 +63,8 @@
             <div
               class="flex flex-col gap-2 justify-center items-center text-center text-white w-full h-full bg-black/50"
             >
-              <h2 class="text-2xl">Aventuras Inesquecíveis</h2>
-              <p class="text-base w-5/6 lg:w-full text-zinc-300">
+              <h2 class="text-4xl">Aventuras Inesquecíveis</h2>
+              <p class="text-base lg:text-lg w-5/6 lg:w-full text-zinc-300">
                 Explore novas culturas e experiências.
               </p>
             </div>
@@ -73,8 +73,8 @@
             <div
               class="flex flex-col gap-2 justify-center items-center text-center text-white w-full h-full bg-black/50"
             >
-              <h2 class="text-2xl">Cultura e Tradição</h2>
-              <p class="text-base w-5/6 lg:w-full text-zinc-300">
+              <h2 class="text-4xl">Cultura e Tradição</h2>
+              <p class="text-base lg:text-lg w-5/6 lg:w-full text-zinc-300">
                 Mergulhe nas tradições locais e gastronomia.
               </p>
             </div>
@@ -89,6 +89,78 @@
 
         <!-- If we need scrollbar -->
         <div class="swiper-scrollbar"></div>
+      </section>
+      <section class="py-10 text-center text-white border-b border-zinc-500/50">
+        <h1 class="text-center text-white text-3xl my-5">Lugares Populares</h1>
+        <div class="h-auto grid grid-cols-3 place-items-center justify-around lg:flex">
+          <div  data-aos="fade-up"
+            data-aos-delay="200">
+            <div class="rounded-full overflow-hidden">
+              <img
+                src="assets/barcelona.jpg"
+                alt=""
+                class="size-24 rounded-full hover:scale-110 transition-transform"
+              />
+            </div>
+            <span>Barcelona</span>
+          </div>
+          <div  data-aos="fade-up"
+            data-aos-delay="300">
+            <div class="rounded-full overflow-hidden">
+              <img
+                src="assets/roma.jpg"
+                alt=""
+                class="size-24 rounded-full hover:scale-110 transition-transform"
+              />
+            </div>
+            <span>Roma</span>
+          </div>
+          <div  data-aos="fade-up"
+            data-aos-delay="400">
+            <div class="rounded-full overflow-hidden">
+              <img
+                src="assets/amsterdam.jpg"
+                alt=""
+                class="size-24 rounded-full hover:scale-110 transition-transform"
+              />
+            </div>
+            <span>Amsterdã</span>
+          </div>
+          <div  data-aos="fade-up"
+            data-aos-delay="500">
+            <div class="rounded-full overflow-hidden">
+              <img
+                src="assets/lisboa.jpg"
+                alt=""
+                class="size-24 rounded-full hover:scale-110 transition-transform"
+              />
+            </div>
+            <span>Lisboa</span>
+          </div>
+          <div  data-aos="fade-up"
+            data-aos-delay="600">
+            <div class="rounded-full overflow-hidden">
+              <img
+                src="assets/london.jpg"
+                alt=""
+                class="size-24 rounded-full hover:scale-110 transition-transform"
+              />
+            </div>
+            <span>Londres</span>
+          </div>
+          <div  data-aos="fade-up"
+            data-aos-delay="700">
+            <div class="rounded-full overflow-hidden">
+              <img
+                src="assets/paris.jpg"
+                alt=""
+                class="size-24 rounded-full hover:scale-110 transition-transform"
+              />
+            </div>
+            <span>Paris</span>
+          </div>
+          
+        </div>
       </section>
 
       <section
@@ -130,14 +202,22 @@
             data-aos="fade-up"
             data-aos-delay="250"
           >
-            <img src="assets/paris.jpg" alt="" class="size-24 rounded-lg hover:scale-105 transition-transform" />
+            <img
+              src="assets/paris.jpg"
+              alt=""
+              class="size-24 rounded-lg hover:scale-105 transition-transform"
+            />
             <div>
               <h3 class="font-bold">Pacote para Paris</h3>
               <p class="text-zinc-300">
                 3 dias de hospedagem + tour pela Torre Eiffel e Louvre.
               </p>
               <span class="font-bold mr-4 text-teal-500">R$ 2.500</span>
-              <a href='https://www.latamairlines.com/br/pt' target='_blank' class="bg-teal-600 text-white rounded mt-2 px-4 hover:bg-slate-50 hover:text-teal-600 transition-colors">
+              <a
+                href="https://www.latamairlines.com/br/pt"
+                target="_blank"
+                class="bg-teal-600 text-white rounded mt-2 px-4 hover:bg-slate-50 hover:text-teal-600 transition-colors"
+              >
                 Saiba Mais
               </a>
             </div>
@@ -147,14 +227,22 @@
             data-aos="fade-up"
             data-aos-delay="350"
           >
-            <img src="assets/roma.jpg" alt="" class="size-24 rounded-lg hover:scale-105 transition-transform" />
+            <img
+              src="assets/roma.jpg"
+              alt=""
+              class="size-24 rounded-lg hover:scale-105 transition-transform"
+            />
             <div>
               <h3 class="font-bold">Pacote para Roma</h3>
               <p class="text-zinc-300">
                 4 dias de hospedagem + visita ao Coliseu e Vaticano.
               </p>
               <span class="font-bold mr-4 text-teal-500">R$ 3.200</span>
-              <a href='https://www.latamairlines.com/br/pt' target='_blank' class="bg-teal-600 text-white rounded mt-2 px-4 hover:bg-slate-50 hover:text-teal-600 transition-colors">
+              <a
+                href="https://www.latamairlines.com/br/pt"
+                target="_blank"
+                class="bg-teal-600 text-white rounded mt-2 px-4 hover:bg-slate-50 hover:text-teal-600 transition-colors"
+              >
                 Saiba Mais
               </a>
             </div>
@@ -164,7 +252,11 @@
             data-aos="fade-up"
             data-aos-delay="450"
           >
-            <img src="assets/london.jpg" alt="" class="size-24 rounded-lg hover:scale-105 transition-transform" />
+            <img
+              src="assets/london.jpg"
+              alt=""
+              class="size-24 rounded-lg hover:scale-105 transition-transform"
+            />
 
             <div>
               <h3 class="font-bold">Pacote para Londres</h3>
@@ -172,7 +264,11 @@
                 5 dias de hospedagem + tour pela Torre de Londres e Buckingham.
               </p>
               <span class="font-bold mr-4 text-teal-500">R$ 3.800</span>
-              <a href='https://www.latamairlines.com/br/pt' target='_blank' class="bg-teal-600 text-white rounded mt-2 px-4 hover:bg-slate-50 hover:text-teal-600 transition-colors">
+              <a
+                href="https://www.latamairlines.com/br/pt"
+                target="_blank"
+                class="bg-teal-600 text-white rounded mt-2 px-4 hover:bg-slate-50 hover:text-teal-600 transition-colors"
+              >
                 Saiba Mais
               </a>
             </div>
@@ -182,7 +278,11 @@
             data-aos="fade-up"
             data-aos-delay="550"
           >
-            <img src="assets/barcelona.jpg" alt="" class="size-24 rounded-lg hover:scale-105 transition-transform" />
+            <img
+              src="assets/barcelona.jpg"
+              alt=""
+              class="size-24 rounded-lg hover:scale-105 transition-transform"
+            />
 
             <div>
               <h3 class="font-bold">Pacote para Barcelona</h3>
@@ -190,7 +290,11 @@
                 6 dias de hospedagem + visita à Sagrada Família e Park Güell.
               </p>
               <span class="font-bold mr-4 text-teal-500">R$ 4.000</span>
-              <a href='https://www.latamairlines.com/br/pt' target='_blank' class="bg-teal-600 text-white rounded mt-2 px-4 hover:bg-slate-50 hover:text-teal-600 transition-colors">
+              <a
+                href="https://www.latamairlines.com/br/pt"
+                target="_blank"
+                class="bg-teal-600 text-white rounded mt-2 px-4 hover:bg-slate-50 hover:text-teal-600 transition-colors"
+              >
                 Saiba Mais
               </a>
             </div>
@@ -200,7 +304,11 @@
             data-aos="fade-up"
             data-aos-delay="650"
           >
-            <img src="assets/amsterdam.jpg" alt="" class="size-24 rounded-lg hover:scale-105 transition-transform" />
+            <img
+              src="assets/amsterdam.jpg"
+              alt=""
+              class="size-24 rounded-lg hover:scale-105 transition-transform"
+            />
 
             <div>
               <h3 class="font-bold">Pacote para Amsterdã</h3>
@@ -208,7 +316,11 @@
                 4 dias de hospedagem + passeio de barco pelos canais.
               </p>
               <span class="font-bold mr-4 text-teal-500">R$ 2.900</span>
-              <a href='https://www.latamairlines.com/br/pt' target='_blank' class="bg-teal-600 text-white rounded mt-2 px-4 hover:bg-slate-50 hover:text-teal-600 transition-colors">
+              <a
+                href="https://www.latamairlines.com/br/pt"
+                target="_blank"
+                class="bg-teal-600 text-white rounded mt-2 px-4 hover:bg-slate-50 hover:text-teal-600 transition-colors"
+              >
                 Saiba Mais
               </a>
             </div>
@@ -218,14 +330,22 @@
             data-aos="fade-up"
             data-aos-delay="750"
           >
-            <img src="assets/lisboa.jpg" alt="" class="size-24 rounded-lg hover:scale-105 transition-transform" />
+            <img
+              src="assets/lisboa.jpg"
+              alt=""
+              class="size-24 rounded-lg hover:scale-105 transition-transform"
+            />
             <div>
               <h3 class="font-bold">Pacote para Lisboa</h3>
               <p class="text-zinc-300">
                 5 dias de hospedagem + tour pelo Bairro Alto e Belém.
               </p>
               <span class="font-bold mr-4 text-teal-500">R$ 2.700</span>
-              <a href='https://www.latamairlines.com/br/pt' target='_blank' class="bg-teal-600 text-white rounded mt-2 px-4 hover:bg-slate-50 hover:text-teal-600 transition-colors">
+              <a
+                href="https://www.latamairlines.com/br/pt"
+                target="_blank"
+                class="bg-teal-600 text-white rounded mt-2 px-4 hover:bg-slate-50 hover:text-teal-600 transition-colors"
+              >
                 Saiba Mais
               </a>
             </div>
@@ -393,11 +513,27 @@
     <footer class="w-full py-4 bg-teal-700 text-white text-center text-sm">
       <p>&copy; 2024 ExploraViagens. Todos os direitos reservados.</p>
       <div class="flex justify-center space-x-4 text-sm">
-        <a href="https://pt-br.facebook.com/" target='_blank'><i class="bi bi-facebook mr-1"></i>Facebook</a>
-        <a href="https://www.instagram.com/" target='_blank'><i class="bi bi-instagram mr-1"></i>Instagram</a>
-        <a href="#https://x.com/?lang=pt-br" target='_blank'><i class="bi bi-twitter-x mr-1"></i>Twitter</a>
+        <a href="https://pt-br.facebook.com/" target="_blank"
+          ><i class="bi bi-facebook mr-1"></i>Facebook</a
+        >
+        <a href="https://www.instagram.com/" target="_blank"
+          ><i class="bi bi-instagram mr-1"></i>Instagram</a
+        >
+        <a href="#https://x.com/?lang=pt-br" target="_blank"
+          ><i class="bi bi-twitter-x mr-1"></i>Twitter</a
+        >
       </div>
     </footer>
+    <a
+      href="https://web.whatsapp.com/"
+      class="btn-whatsapp"
+      target="_blank"
+      data-aos="zoom-in-up"
+      data-aos-delay="300"
+    >
+      <img src="./assets/whatsapp.svg" alt="Botao whatsapp" id="icon-whats" />
+      <span class="tooltip-text">Fale com a gente!</span>
+    </a>
 
     <script src="script.js"></script>
     <script src="animation.js"></script>
