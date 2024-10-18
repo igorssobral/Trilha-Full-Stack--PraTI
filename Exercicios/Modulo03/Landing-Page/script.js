@@ -163,6 +163,8 @@ document
         setTimeout(() => {
           alertDiv.classList.remove('translate-x-0');
           alertDiv.classList.add('translate-x-80');
+          
+          alertDiv.classList.remove('text-red-800', 'bg-teal-50');
 
           setTimeout(() => {
             alertDiv.classList.add('hidden');
