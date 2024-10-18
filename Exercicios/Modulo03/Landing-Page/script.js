@@ -113,7 +113,7 @@ async function fetchTestemunhos() {
 
       testemunhoCard.innerHTML = `
                 <img src="${user.picture.medium}" alt="${user.name.first} ${user.name.last}" class="size-20 rounded-full" />
-                <h3 class="font-bold text-teal-50 text-sm lg:text-lg">${user.name.first} ${user.name.last}</h3>
+                <h3 class="font-bold text-teal-50 text-sm lg:text-base">${user.name.first} ${user.name.last}</h3>
                 <div class="text-yellow-300 flex gap-1">
                     <i class="bi bi-star-fill"></i>
                     <i class="bi bi-star-fill"></i>
