@@ -4,6 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
@@ -20,9 +26,9 @@
     <title>Explora Viagens</title>
     <style></style>
   </head>
-  <body class="bg-teal-950">
+  <body class="bg-teal-950 antialiased">
     <header
-      class="h-auto flex items-center justify-around bg-teal-700 text-white p-4"
+      class="fixed w-full z-50 h-auto flex items-center justify-around bg-teal-700 text-white p-2"
     >
       <nav
         class="flex items-center flex-col gap-3 justify-between w-full lg:w-3/5 md:flex-row"
@@ -30,14 +36,15 @@
         <div class="logo">
           <a href="#home"><h1 class="text-2xl font-bold">ExploraViagens</h1></a>
         </div>
-        <ul class="flex space-x-4 lg:text-lg lg:ml-[-100px]">
+        <ul class="flex space-x-4 text-sm lg:text-base lg:ml-[-100px]">
           <li><a href="#sobre">Sobre</a></li>
-          <li><a href="#pacotes">Pacotes</a></li>
+          <li><a href="#servicos">Serviços</a></li>
+          <li><a href="#pacotesViagens">Pacotes</a></li>
           <li><a href="#testemunhos">Testemunhos</a></li>
           <li><a href="#contato">Contato</a></li>
         </ul>
         <button
-          class="bg-indigo-800 text-white rounded-lg p-2 hover:bg-white hover:text-indigo-900 transition-all"
+          class="bg-indigo-700 text-white rounded-lg p-2 hover:bg-indigo-900 transition"
         >
           Reserve já
         </button>
@@ -46,9 +53,7 @@
 
     <main class="w-full m-auto lg:w-4/5 2xl:w-3/5 bg-teal-950" id="home">
       <section class="swiper" data-aos="fade-up" data-aos-delay="100">
-        <!-- Additional required wrapper -->
         <div class="swiper-wrapper">
-          <!-- Slides -->
           <div class="swiper-slide flex slideOne">
             <div
               class="flex flex-col gap-2 justify-center items-center text-center text-white w-full h-full bg-black/50"
@@ -91,11 +96,18 @@
         <div class="swiper-scrollbar"></div>
       </section>
       <section class="py-10 text-center text-white border-b border-zinc-500/50">
-        <h1 class="text-center text-white text-3xl my-5" data-aos="fade-up" data-aos-delay="200">Lugares Populares</h1>
-        <div class="h-auto grid grid-cols-3 place-items-center justify-around lg:flex">
-          <div  data-aos="fade-up"
-            data-aos-delay="200">
-            <div class="rounded-full overflow-hidden">
+        <h1
+          class="text-center text-white text-2xl my-5"
+          data-aos="fade-up"
+          data-aos-delay="200"
+        >
+          Lugares Populares
+        </h1>
+        <div
+          class="h-auto grid grid-cols-3 place-items-center justify-around lg:flex"
+        >
+          <div data-aos="fade-up" data-aos-delay="200">
+            <div class="rounded-full overflow-hidden border-4">
               <img
                 src="assets/barcelona.jpg"
                 alt=""
@@ -104,9 +116,8 @@
             </div>
             <span>Barcelona</span>
           </div>
-          <div  data-aos="fade-up"
-            data-aos-delay="300">
-            <div class="rounded-full overflow-hidden">
+          <div data-aos="fade-up" data-aos-delay="300">
+            <div class="rounded-full overflow-hidden border-4">
               <img
                 src="assets/roma.jpg"
                 alt=""
@@ -115,9 +126,8 @@
             </div>
             <span>Roma</span>
           </div>
-          <div  data-aos="fade-up"
-            data-aos-delay="400">
-            <div class="rounded-full overflow-hidden">
+          <div data-aos="fade-up" data-aos-delay="400">
+            <div class="rounded-full overflow-hidden border-4">
               <img
                 src="assets/amsterdam.jpg"
                 alt=""
@@ -126,9 +136,8 @@
             </div>
             <span>Amsterdã</span>
           </div>
-          <div  data-aos="fade-up"
-            data-aos-delay="500">
-            <div class="rounded-full overflow-hidden">
+          <div data-aos="fade-up" data-aos-delay="500">
+            <div class="rounded-full overflow-hidden border-4">
               <img
                 src="assets/lisboa.jpg"
                 alt=""
@@ -137,9 +146,8 @@
             </div>
             <span>Lisboa</span>
           </div>
-          <div  data-aos="fade-up"
-            data-aos-delay="600">
-            <div class="rounded-full overflow-hidden">
+          <div data-aos="fade-up" data-aos-delay="600">
+            <div class="rounded-full overflow-hidden border-4">
               <img
                 src="assets/london.jpg"
                 alt=""
@@ -148,9 +156,8 @@
             </div>
             <span>Londres</span>
           </div>
-          <div  data-aos="fade-up"
-            data-aos-delay="700">
-            <div class="rounded-full overflow-hidden">
+          <div data-aos="fade-up" data-aos-delay="700">
+            <div class="rounded-full overflow-hidden border-4">
               <img
                 src="assets/paris.jpg"
                 alt=""
@@ -159,201 +166,107 @@
             </div>
             <span>Paris</span>
           </div>
-          
         </div>
       </section>
 
       <section
         id="sobre"
-        class="py-10 text-center text-white border-b border-zinc-500/50"
+        class="py-28 lg:py-20 text-center text-white border-b border-zinc-500/50"
       >
         <div class="flex flex-col items-center gap-2 w-full md:flex-row">
           <div class="w-full p-2" data-aos="zoom-in" data-aos-delay="300">
             <img src="assets/edit.png" alt="fotos paisagens" />
           </div>
 
-          <div
+          <aside
             class="text-center md:text-start md:ml-5 p-2"
             data-aos="fade-up"
             data-aos-delay="300"
           >
             <h2 class="text-4xl mb-5">Sobre Nós</h2>
-            <p class="text-xl md:text-lg">
-              A <strong>ExploraViagens</strong> é uma agência dedicada a criar
-              experiências de viagem únicas e memoráveis. Nós cuidamos de todos
-              os detalhes, para que você possa aproveitar ao máximo cada
-              momento.
+            <p class="text-xl md:text-lg font-light">
+              A
+              <strong class="text-teal-500 font-bold">ExploraViagens</strong> é
+              uma agência dedicada a criar experiências de viagem únicas e
+              memoráveis. Nós cuidamos de todos os detalhes, para que você possa
+              aproveitar ao máximo cada momento.
             </p>
-          </div>
+          </aside>
         </div>
-      </section>
-
-      <section id="pacotes" class="py-10 p-5 border-b border-zinc-500/50">
-        <h2
-          class="text-4xl text-center mb-5 text-white"
-          data-aos="fade-up"
-          data-aos-delay="200"
+        <div
+          class="flex flex-col-reverse items-center gap-2 w-full md:flex-row"
         >
-          Nossos Pacotes
-        </h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div
-            class="flex items-center gap-3 border p-4 rounded-lg shadow bg-white/50 card"
+          <aside
+            class="text-center md:text-start md:ml-5 p-2"
             data-aos="fade-up"
-            data-aos-delay="250"
+            data-aos-delay="300"
+          >
+            <p class="text-xl md:text-lg font-light">
+              Com uma equipe de especialistas apaixonados por viagens, cuidamos
+              de todos os detalhes para que você possa aproveitar ao máximo cada
+              momento. Desde o planejamento inicial até o retorno para casa,
+              garantimos que cada etapa da sua jornada seja perfeita e livre de
+              preocupações. <br />
+              <br />
+              Na
+              <strong class="text-teal-500 font-bold">ExploraViagens</strong> ,
+              não apenas organizamos viagens; nós criamos memórias que durarão a
+              vida toda. Venha descobrir o mundo conosco e deixe-nos ajudar a
+              escrever sua próxima história de viagem!
+            </p>
+          </aside>
+          <div
+            class="w-4/5 lg:w-full p-2 bg-gradient-to-tr from-teal-400 to-teal-800"
+            data-aos="zoom-in"
+            data-aos-delay="300"
           >
             <img
-              src="assets/paris.jpg"
-              alt=""
-              class="size-24 rounded-lg hover:scale-105 transition-transform"
+              src="assets/foto-sobre.jpg"
+              alt="fotos paisagens"
+              class="w-full h-full object-cover"
             />
-            <div>
-              <h3 class="font-bold">Pacote para Paris</h3>
-              <p class="text-zinc-300">
-                3 dias de hospedagem + tour pela Torre Eiffel e Louvre.
-              </p>
-              <span class="font-bold mr-4 text-teal-500">R$ 2.500</span>
-              <a
-                href="https://www.latamairlines.com/br/pt"
-                target="_blank"
-                class="bg-teal-600 text-white rounded mt-2 px-4 hover:bg-slate-50 hover:text-teal-600 transition-colors"
-              >
-                Saiba Mais
-              </a>
-            </div>
-          </div>
-          <div
-            class="flex items-center gap-3 border p-4 rounded-lg shadow bg-white/50"
-            data-aos="fade-up"
-            data-aos-delay="350"
-          >
-            <img
-              src="assets/roma.jpg"
-              alt=""
-              class="size-24 rounded-lg hover:scale-105 transition-transform"
-            />
-            <div>
-              <h3 class="font-bold">Pacote para Roma</h3>
-              <p class="text-zinc-300">
-                4 dias de hospedagem + visita ao Coliseu e Vaticano.
-              </p>
-              <span class="font-bold mr-4 text-teal-500">R$ 3.200</span>
-              <a
-                href="https://www.latamairlines.com/br/pt"
-                target="_blank"
-                class="bg-teal-600 text-white rounded mt-2 px-4 hover:bg-slate-50 hover:text-teal-600 transition-colors"
-              >
-                Saiba Mais
-              </a>
-            </div>
-          </div>
-          <div
-            class="flex items-center gap-3 border p-4 rounded-lg shadow bg-white/50"
-            data-aos="fade-up"
-            data-aos-delay="450"
-          >
-            <img
-              src="assets/london.jpg"
-              alt=""
-              class="size-24 rounded-lg hover:scale-105 transition-transform"
-            />
-
-            <div>
-              <h3 class="font-bold">Pacote para Londres</h3>
-              <p class="text-zinc-300">
-                5 dias de hospedagem + tour pela Torre de Londres e Buckingham.
-              </p>
-              <span class="font-bold mr-4 text-teal-500">R$ 3.800</span>
-              <a
-                href="https://www.latamairlines.com/br/pt"
-                target="_blank"
-                class="bg-teal-600 text-white rounded mt-2 px-4 hover:bg-slate-50 hover:text-teal-600 transition-colors"
-              >
-                Saiba Mais
-              </a>
-            </div>
-          </div>
-          <div
-            class="flex items-center gap-3 border p-4 rounded-lg shadow bg-white/50"
-            data-aos="fade-up"
-            data-aos-delay="550"
-          >
-            <img
-              src="assets/barcelona.jpg"
-              alt=""
-              class="size-24 rounded-lg hover:scale-105 transition-transform"
-            />
-
-            <div>
-              <h3 class="font-bold">Pacote para Barcelona</h3>
-              <p class="text-zinc-300">
-                6 dias de hospedagem + visita à Sagrada Família e Park Güell.
-              </p>
-              <span class="font-bold mr-4 text-teal-500">R$ 4.000</span>
-              <a
-                href="https://www.latamairlines.com/br/pt"
-                target="_blank"
-                class="bg-teal-600 text-white rounded mt-2 px-4 hover:bg-slate-50 hover:text-teal-600 transition-colors"
-              >
-                Saiba Mais
-              </a>
-            </div>
-          </div>
-          <div
-            class="flex items-center gap-3 border p-4 rounded-lg shadow bg-white/50"
-            data-aos="fade-up"
-            data-aos-delay="650"
-          >
-            <img
-              src="assets/amsterdam.jpg"
-              alt=""
-              class="size-24 rounded-lg hover:scale-105 transition-transform"
-            />
-
-            <div>
-              <h3 class="font-bold">Pacote para Amsterdã</h3>
-              <p class="text-zinc-300">
-                4 dias de hospedagem + passeio de barco pelos canais.
-              </p>
-              <span class="font-bold mr-4 text-teal-500">R$ 2.900</span>
-              <a
-                href="https://www.latamairlines.com/br/pt"
-                target="_blank"
-                class="bg-teal-600 text-white rounded mt-2 px-4 hover:bg-slate-50 hover:text-teal-600 transition-colors"
-              >
-                Saiba Mais
-              </a>
-            </div>
-          </div>
-          <div
-            class="flex items-center gap-3 border p-4 rounded-lg shadow bg-white/50"
-            data-aos="fade-up"
-            data-aos-delay="750"
-          >
-            <img
-              src="assets/lisboa.jpg"
-              alt=""
-              class="size-24 rounded-lg hover:scale-105 transition-transform"
-            />
-            <div>
-              <h3 class="font-bold">Pacote para Lisboa</h3>
-              <p class="text-zinc-300">
-                5 dias de hospedagem + tour pelo Bairro Alto e Belém.
-              </p>
-              <span class="font-bold mr-4 text-teal-500">R$ 2.700</span>
-              <a
-                href="https://www.latamairlines.com/br/pt"
-                target="_blank"
-                class="bg-teal-600 text-white rounded mt-2 px-4 hover:bg-slate-50 hover:text-teal-600 transition-colors"
-              >
-                Saiba Mais
-              </a>
-            </div>
           </div>
         </div>
       </section>
 
-      <section id="testemunhos" class="py-10 border-b border-zinc-500/50">
+      <section
+        id="servicos"
+        class="py-32 lg:py-20 p-5 border-b border-zinc-500/50"
+      >
+        <h1
+          class="text-4xl text-center mb-5 text-white"
+          data-aos="zoom-in"
+          data-aos-delay="300"
+        >
+          Serviços
+        </h1>
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-5"
+          id="servicos-container"
+        ></div>
+      </section>
+
+      <section
+        id="pacotesViagens"
+        class="py-32 lg:py-20 p-5 border-b border-zinc-500/50"
+      >
+        <h1
+          class="text-3xl text-center mb-5 text-white"
+          data-aos="zoom-in"
+          data-aos-delay="300"
+        >
+          Pacotes de Viagens
+        </h1>
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 gap-6"
+          id="pacotes-container"
+        ></div>
+      </section>
+
+      <section
+        id="testemunhos"
+        class="py-32 lg:py-20 border-b border-zinc-500/50"
+      >
         <h2
           class="text-2xl md:text-3xl text-center mb-5 text-white"
           data-aos="zoom-in"
@@ -362,91 +275,18 @@
           O que nossos clientes dizem
         </h2>
         <div
-          class="p-2 flex flex-wrap items-center justify-center gap-5 md:gap-10"
-        >
-          <div
-            class="flex w-40 h-[315px] md:h-72 lg:w-52 2xl:w-60 flex-col items-center border p-2 rounded-lg shadow bg-white/50"
-            data-aos="fade-up"
-            data-aos-delay="200"
-          >
-            <img src="assets/pessoa3.jpg" alt="" class="size-20 rounded-full" />
-            <h3 class="font-bold">Maria Clarisse</h3>
-            <div class="text-yellow-300 flex gap-1">
-              <i class="bi bi-star-fill"></i>
-              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-            </div>
-            <i class="fa-solid fa-user"></i>
-            <q class="mt-6 text-zinc-300"
-              >Estadia incrível! Acomodação confortável e passeios bem
-              organizados. Super recomendo!</q
-            >
-          </div>
-          <div
-            class="flex w-40 h-[315px] md:h-72 lg:w-52 2xl:w-60 flex-col items-center border p-2 rounded-lg shadow bg-white/50"
-            data-aos="fade-down"
-            data-aos-delay="300"
-          >
-            <img src="assets/pessoa1.jpg" alt="" class="size-20 rounded-full" />
-            <h3 class="font-bold">João Alves</h3>
-            <div class="text-yellow-300 flex gap-1">
-              <i class="bi bi-star-fill"></i>
-              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-            </div>
-            <i class="fa-solid fa-user"></i>
-            <q class="mt-6 text-zinc-300"
-              >Ótima experiência! Passeios divertidos e boa hospedagem. Valeu a
-              pena!</q
-            >
-          </div>
-          <div
-            class="flex w-40 h-[315px] md:h-72 lg:w-52 2xl:w-60 flex-col items-center border p-2 rounded-lg shadow bg-white/50"
-            data-aos="fade-up"
-            data-aos-delay="400"
-          >
-            <img src="assets/pessoa2.jpg" alt="" class="size-20 rounded-full" />
-            <h3 class="font-bold">Fernando</h3>
-            <div class="text-yellow-300 flex gap-1">
-              <i class="bi bi-star-fill"></i>
-              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-            </div>
-            <i class="fa-solid fa-user"></i>
-            <q class="mt-6 text-zinc-300"
-              >Adorei a viagem! Acomodação excelente e passeios emocionantes.
-              Recomendo!</q
-            >
-          </div>
-          <div
-            class="flex w-40 h-[315px] md:h-72 lg:w-52 2xl:w-60 flex-col items-center border p-2 rounded-lg shadow bg-white/50"
-            data-aos="fade-down"
-            data-aos-delay="500"
-          >
-            <img
-              src="assets/pessoa4.jpg"
-              alt="foto de julia"
-              class="size-20 rounded-full"
-            />
-            <h3 class="font-bold">Julia</h3>
-            <div class="text-yellow-300 flex gap-1">
-              <i class="bi bi-star-fill"></i>
-              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-            </div>
-            <i class="fa-solid fa-user"></i>
-            <q class="mt-6 text-zinc-300"
-              >Maravilhosa estadia! Acomodação ótima e passeios divertidos.
-              Quero voltar!</q
-            >
-          </div>
-        </div>
+          id="testemunhos-container"
+          class="p-1 flex flex-wrap items-center justify-center gap-4 md:gap-10"
+        ></div>
       </section>
 
-      <section id="contato" class="py-10 p-5 border-b border-zinc-500/50">
+      <section
+        id="contato"
+        class="py-32 lg:py-20 p-5 border-b border-zinc-500/50"
+      >
         <h2
           class="text-3xl text-center text-white mb-5"
-          data-aos="fade-up"
+          data-aos="zoom-in"
           data-aos-delay="200"
         >
           Entre em Contato
@@ -477,21 +317,22 @@
           <textarea
             placeholder="Sua Mensagem"
             required
+            rows="4"
             class="border rounded w-full p-2 mb-4"
           ></textarea>
           <button
             type="submit"
-            class="bg-teal-600 text-white rounded p-2 w-full"
+            class="bg-teal-600 text-white rounded p-2 w-full hover:bg-teal-800 transition"
           >
             Enviar
           </button>
         </form>
       </section>
 
-      <section class="text-center">
+      <section class="text-center pt-10">
         <h1
-          class="text-2xl text-white my-2"
-          data-aos="fade-up"
+          class="text-3xl text-white my-2"
+          data-aos="zoom-in"
           data-aos-delay="200"
         >
           Nossa localização
@@ -510,16 +351,29 @@
         ></iframe>
       </section>
     </main>
-    <footer class="w-full py-4 bg-teal-700 text-white text-center text-sm">
-      <p>&copy; 2024 ExploraViagens. Todos os direitos reservados.</p>
+    <footer
+      class="w-full flex flex-col gap-2 py-4 bg-teal-700 text-white text-center text-sm"
+    >
+      <p class="lg:text-sm">
+        &copy; 2024 ExploraViagens. Todos os direitos reservados.
+      </p>
       <div class="flex justify-center space-x-4 text-sm">
-        <a href="https://pt-br.facebook.com/" target="_blank"
+        <a
+          href="https://pt-br.facebook.com/"
+          target="_blank"
+          class="hover:text-teal-500 transition"
           ><i class="bi bi-facebook mr-1"></i>Facebook</a
         >
-        <a href="https://www.instagram.com/" target="_blank"
+        <a
+          href="https://www.instagram.com/"
+          target="_blank"
+          class="hover:text-teal-500 transition"
           ><i class="bi bi-instagram mr-1"></i>Instagram</a
         >
-        <a href="#https://x.com/?lang=pt-br" target="_blank"
+        <a
+          href="https://x.com/?lang=pt-br"
+          target="_blank"
+          class="hover:text-teal-500 transition"
           ><i class="bi bi-twitter-x mr-1"></i>Twitter</a
         >
       </div>
