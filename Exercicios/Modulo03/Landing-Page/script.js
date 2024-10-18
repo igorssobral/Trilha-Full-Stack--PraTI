@@ -152,6 +152,7 @@ document
       function () {
         alertDiv.innerHTML =
           ' <i class="bi bi-check-circle-fill mr-1"></i> Email enviado com sucesso!';
+          alertDiv.classList.remove('text-red-800', 'bg-teal-50');
 
         alertDiv.classList.remove('hidden');
 
@@ -164,7 +165,6 @@ document
           alertDiv.classList.remove('translate-x-0');
           alertDiv.classList.add('translate-x-80');
           
-          alertDiv.classList.remove('text-red-800', 'bg-teal-50');
 
           setTimeout(() => {
             alertDiv.classList.add('hidden');
