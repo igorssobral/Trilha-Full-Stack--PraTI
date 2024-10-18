@@ -1,0 +1,110 @@
+{
+  "servicos": [
+    {
+      "id": 1,
+      "titulo": "Planejamento de Viagens Personalizadas",
+      "descricao": "Crie a viagem dos seus sonhos com a ajuda dos nossos especialistas em roteiros personalizados. Nós cuidamos de cada detalhe, garantindo uma experiência única.",
+      "link": "https://web.whatsapp.com/"
+    },
+    {
+      "id": 2,
+      "titulo": "Consultoria de Destinos",
+      "descricao": "Receba assessoria sobre os melhores lugares para visitar, com base nas suas preferências. Descubra novos destinos incríveis com a nossa ajuda.",
+      "link": "https://web.whatsapp.com/"
+    },
+    {
+      "id": 3,
+      "titulo": "Pacotes de Viagem",
+      "descricao": "Explore nossas opções de pacotes de viagem, cuidadosamente elaborados para todos os tipos de viajantes: aventura, romântica, familiar e muito mais!",
+      "link": "#pacotesViagens"
+    },
+    {
+      "id": 4,
+      "titulo": "Serviços de Transfer",
+      "descricao": "Oferecemos serviços de transporte de e para o aeroporto, bem como traslados entre destinos durante a sua viagem, garantindo conforto e segurança.",
+      "link": "https://web.whatsapp.com/"
+    }
+  ],
+  "pacotes": [
+    {
+      "id": 1,
+      "titulo": "Pacote para Paris",
+      "descricao": "3 dias de hospedagem + tour pela Torre Eiffel e Louvre.",
+      "preco": "R$ 2.500",
+      "imagem": "assets/paris.jpg",
+      "link": "https://www.latamairlines.com/br/pt"
+    },
+    {
+      "id": 2,
+      "titulo": "Pacote para Roma",
+      "descricao": "4 dias de hospedagem + visita ao Coliseu e Vaticano.",
+      "preco": "R$ 3.200",
+      "imagem": "assets/roma.jpg",
+      "link": "https://www.latamairlines.com/br/pt"
+    },
+    {
+      "id": 3,
+      "titulo": "Pacote para Londres",
+      "descricao": "5 dias de hospedagem + tour pela Torre de Londres e Buckingham.",
+      "preco": "R$ 3.800",
+      "imagem": "assets/london.jpg",
+      "link": "https://www.latamairlines.com/br/pt"
+    },
+    {
+      "id": 4,
+      "titulo": "Pacote para Barcelona",
+      "descricao": "6 dias de hospedagem + visita à Sagrada Família e Park Güell.",
+      "preco": "R$ 4.000",
+      "imagem": "assets/barcelona.jpg",
+      "link": "https://www.latamairlines.com/br/pt"
+    },
+    {
+      "id": 5,
+      "titulo": "Pacote para Amsterdã",
+      "descricao": "4 dias de hospedagem + passeio de barco pelos canais.",
+      "preco": "R$ 2.900",
+      "imagem": "assets/amsterdam.jpg",
+      "link": "https://www.latamairlines.com/br/pt"
+    },
+    {
+      "id": 6,
+      "titulo": "Pacote para Lisboa",
+      "descricao": "5 dias de hospedagem + tour pelo Bairro Alto e Belém.",
+      "preco": "R$ 2.700",
+      "imagem": "assets/lisboa.jpg",
+      "link": "https://www.latamairlines.com/br/pt"
+    },
+    {
+      "id": 7,
+      "titulo": "Pacote para Nova York",
+      "descricao": "5 dias de hospedagem + passeio pela Times Square e Central Park.",
+      "preco": "R$ 4.500",
+      "imagem": "assets/newyork.jpg",
+      "link": "https://www.latamairlines.com/br/pt"
+    },
+    {
+      "id": 8,
+      "titulo": "Pacote para Tóquio",
+      "descricao": "7 dias de hospedagem + visita ao Templo Senso-ji e Shibuya.",
+      "preco": "R$ 5.200",
+      "imagem": "assets/tokyo.jpg",
+      "link": "https://www.latamairlines.com/br/pt"
+    },
+    {
+      "id": 9,
+      "titulo": "Pacote para Sydney",
+      "descricao": "6 dias de hospedagem + tour pela Opera House e Bondi Beach.",
+      "preco": "R$ 4.800",
+      "imagem": "assets/sydney.jpg",
+      "link": "https://www.latamairlines.com/br/pt"
+    },
+    {
+      "id": 10,
+      "titulo": "Pacote para Dubai",
+      "descricao": "5 dias de hospedagem + visita ao Burj Khalifa e Dubai Mall.",
+      "preco": "R$ 6.000",
+      "imagem": "assets/dubai.jpg",
+      "link": "https://www.latamairlines.com/br/pt"
+    }
+  ]
+}
