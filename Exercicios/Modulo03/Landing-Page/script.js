@@ -15,6 +15,10 @@ document.querySelectorAll('nav a').forEach((anchor) => {
   });
 });
 
+(function () {
+  emailjs.init('PPgDwZ8zogi4zoyk0');
+})();
+
 const swiper = new Swiper('.swiper', {
   loop: true,
   pagination: {
@@ -105,7 +109,7 @@ async function fetchTestemunhos() {
         'p-4',
         'rounded-lg',
         'shadow',
-        'bg-white/50'  
+        'bg-white/50'
       );
 
       testemunhoCard.setAttribute('data-aos', 'fade-up');
@@ -139,7 +143,36 @@ document
   .getElementById('contact-form')
   .addEventListener('submit', function (e) {
     e.preventDefault();
+    const formData = new FormData(this);
+    for (const [key, value] of formData.entries()) {
+      console.log(`${key}: ${value}`);
+    }
+    const alertDiv = document.getElementById('alert');
+    emailjs.sendForm('service_du9xk5k', 'template_m0zpwa5', this).then(
+      function () {
+        alertDiv.innerHTML =
+          ' <i class="bi bi-check-circle-fill mr-1"></i> Email enviado com sucesso!';
 
-    alert('Formulário enviado com sucesso!');
-    this.reset();
+        alertDiv.classList.remove('hidden');
+
+        alertDiv.classList.remove('translate-x-80');
+        alertDiv.classList.add('translate-x-0');
+
+        document.getElementById('contact-form').reset();
+
+        setTimeout(() => {
+          alertDiv.classList.remove('translate-x-0');
+          alertDiv.classList.add('translate-x-80');
+
+          setTimeout(() => {
+            alertDiv.classList.add('hidden');
+          }, 300);
+        }, 3000);
+      },
+      function (error) {
+        alertDiv.classList.add('text-red-800', 'bg-teal-50');
+        alertDiv.innerHTML =
+          ' <i class="bi bi-x-circle-fill"></i> Erro ao enviar email!';
+      }
+    );
   });

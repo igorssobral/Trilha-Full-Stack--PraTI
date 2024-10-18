@@ -23,6 +23,7 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <title>Explora Viagens</title>
     <style></style>
   </head>
@@ -298,23 +299,27 @@
           data-aos-delay="300"
         >
           <input
+          name='from_name'
             type="text"
             placeholder="Seu Nome"
             required
             class="border rounded w-full p-2 mb-4"
           />
           <input
+          name='email'
             type="email"
             placeholder="Seu Email"
             required
             class="border rounded w-full p-2 mb-4"
           />
           <input
+          name='phone'
             type="tel"
             placeholder="Seu Telefone"
             class="border rounded w-full p-2 mb-4"
           />
           <textarea
+          name='message'
             placeholder="Sua Mensagem"
             required
             rows="4"
@@ -388,6 +393,9 @@
       <img src="./assets/whatsapp.svg" alt="Botao whatsapp" id="icon-whats" />
       <span class="tooltip-text">Fale com a gente!</span>
     </a>
+
+    <div id="alert" class="hidden w-72 fixed z-50 h-14 top-32 right-2 lg:top-14 lg:right-5 mt-4 p-4 text-teal-50 bg-teal-900 border border-teal-700 rounded transition-transform transform translate-x-0" role="alert">
+  </div>
 
     <script src="script.js"></script>
   </body>
