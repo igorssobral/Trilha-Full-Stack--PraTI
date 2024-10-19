@@ -22,11 +22,11 @@ O Explora Viagens é uma agência online que oferece pacotes de viagem personali
 - **TAILWINDCSS**
 - **JAVASCRIPT**
 
-## Acesso ao Site
+# Acesso ao Site
 
 Você pode acessar o site através do seguinte link: [Explora Viagens](https://trilha-full-stack-mais-pra-ti-explora-viagens.vercel.app/).
 
-## Visualização do Projeto Localmente
+# Visualização do Projeto Localmente
 
 Para visualizar o projeto localmente, siga os passos abaixo:
 
