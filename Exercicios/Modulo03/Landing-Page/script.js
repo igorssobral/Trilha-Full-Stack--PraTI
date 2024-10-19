@@ -143,16 +143,13 @@ document
   .getElementById('contact-form')
   .addEventListener('submit', function (e) {
     e.preventDefault();
-    const formData = new FormData(this);
-    for (const [key, value] of formData.entries()) {
-      console.log(`${key}: ${value}`);
-    }
+
     const alertDiv = document.getElementById('alert');
     emailjs.sendForm('service_du9xk5k', 'template_m0zpwa5', this).then(
       function () {
         alertDiv.innerHTML =
           ' <i class="bi bi-check-circle-fill mr-1"></i> Email enviado com sucesso!';
-          alertDiv.classList.remove('text-red-800', 'bg-teal-50');
+        alertDiv.classList.remove('text-red-800', 'bg-teal-50');
 
         alertDiv.classList.remove('hidden');
 
@@ -164,7 +161,6 @@ document
         setTimeout(() => {
           alertDiv.classList.remove('translate-x-0');
           alertDiv.classList.add('translate-x-80');
-          
 
           setTimeout(() => {
             alertDiv.classList.add('hidden');
@@ -178,3 +174,11 @@ document
       }
     );
   });
+
+  document.addEventListener('keydown', function (event) {
+    if(event.key === 'ArrowLeft') {
+        swiper.slidePrev()
+    } else if(event.key === 'ArrowRight'){
+        swiper.slideNext()
+    }
+})
