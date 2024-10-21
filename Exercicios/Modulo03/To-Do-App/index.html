@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>To-Do APP</title>
+    <style></style>
+  </head>
+  <body class="bg-zinc-200 antialiased">
+    <header
+      class="absolute w-full z-50 h-16 flex items-center justify-center bg-zinc-900 text-white"
+    >
+      <nav>
+        <div class="logo">
+          <h1 class="text-2xl font-bold">To-Do APP</h1>
+        </div>
+      </nav>
+    </header>
+
+    <main class="flex h-svh flex-col items-center">
+      <section class="mt-20">
+        <h1 class="text-zinc-900 text-2xl font-extrabold text-center">
+          Criar Tarefa
+        </h1>
+        <form action="" id="task-form" class="flex flex-col space-y-3">
+          <input
+            type="text"
+            id="task"
+            class="h-8 rounded-md outline-none pl-2"
+            placeholder="Tarefa"
+            required
+          />
+          <textarea
+            name=""
+            id="description"
+            class="rounded-md outline-none p-2"
+            placeholder="Descrição"
+            required
+          ></textarea>
+          <button type="submit" class="bg-teal-700 text-white py-1 rounded-md">
+            Salvar
+          </button>
+        </form>
+      </section>
+
+      <section class="w-full mt-10 flex flex-col items-center">
+        <h1 class='text-2xl text-zinc-900'>Tarefas</h1>
+
+        <div id='task-list' class="w-4/6 h-[400px] flex justify-center flex-wrap gap-4 overflow-y-scroll bg-slate-400">
+          <!-- <div  class="w-60 h-80 bg-zinc-800 rounded-md p-2 flex flex-col gap-1">
+            <h1 class="text-zinc-200">Tarefa</h1>
+            <input
+              type="text"
+              class="h-8 rounded-md text-zinc-800 pl-1 bg-zinc-100"
+              disabled
+              value="tarefa"
+            />
+            <h1 class="text-zinc-200">Descriçao</h1>
+            <textarea
+              name=""
+              id=""
+              rows="3"
+              class="w-full rounded-md text-zinc-800 pl-1 bg-zinc-100"
+              disabled
+            >
+assasa</textarea
+            >
+            <div class="space-y-3">
+              <button
+                type="button"
+                class="w-full h-8 text-zinc-50 bg-green-600 rounded-sm"
+              >
+                Concluir
+              </button>
+              <button
+                type="button"
+                class="w-full h-8 text-zinc-50 bg-slate-500 rounded-sm"
+              >
+                Editar
+              </button>
+              <button
+                type="button"
+                class="w-full h-8 text-zinc-50 bg-red-500 rounded-sm"
+              >
+                Excluir
+              </button>
+            </div>
+          </div> -->
+        </div>
+      </section>
+    </main>
+
+    <footer
+      class="absolute bottom-0 w-full flex items-center justify-center h-14 bg-zinc-900 text-white text-center text-sm"
+    >
+      <p class="lg:text-sm">
+        &copy; 2024 To-Do APP. Todos os direitos reservados.
+      </p>
+    </footer>
+
+    <div
+      id="alert"
+      class="hidden w-72 fixed z-50 h-14 top-32 right-2 lg:top-14 lg:right-5 mt-4 p-4 text-zinc-800-50 bg-zinc-50 border border-teal-700 rounded transition-transform transform translate-x-0"
+      role="alert"
+    ></div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
