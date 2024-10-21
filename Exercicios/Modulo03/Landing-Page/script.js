@@ -143,7 +143,7 @@ document
   .getElementById('contact-form')
   .addEventListener('submit', function (e) {
     e.preventDefault();
-
+  
     const alertDiv = document.getElementById('alert');
     emailjs.sendForm('service_du9xk5k', 'template_m0zpwa5', this).then(
       function () {
