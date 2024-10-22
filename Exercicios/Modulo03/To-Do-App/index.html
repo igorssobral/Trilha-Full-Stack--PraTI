@@ -34,6 +34,7 @@
     </header>
 
     <main class="flex h-svh flex-col items-center">
+      <!-- Modal nova tarefa -->
       <section
         class="absolute top-0 w-full h-full z-50 hidden justify-center items-center bg-black/50"
         id="modal-new-task"
@@ -55,7 +56,7 @@
               id="description"
               class="rounded-md outline-none p-2 border-2 border-teal-900/20"
               placeholder="Descrição"
-              rows='4'
+              rows="4"
               required
             ></textarea>
             <button
@@ -76,26 +77,34 @@
       </section>
 
       <section class="w-full h-[95%] mt-2 flex flex-col items-center space-y-4">
-      
         <div
-          class="bg-white lg:w-3/5 flex flex-col-reverse gap-2 lg:gap-0 lg:flex-row justify-around items-center p-4 rounded-xl mt-20"
+          class="bg-white max-2xl:w-[90%] 2xl:w-[65%] flex flex-col-reverse gap-2 lg:gap-0 md:flex-row justify-evenly items-center p-4 rounded-xl mt-20"
         >
           <button
             class="text-teal-900 w-max p-2 rounded-lg border-2 hover:bg-teal-900 hover:text-zinc-100 transition"
-            onclick='openModalNewTask()'
+            onclick="openModalNewTask()"
           >
             <i class="bi bi-plus-circle mr-2"></i>Adicionar tarefa
           </button>
-          <input
-            type="text"
-            class="pl-2 py-2 outline-none border-2 rounded-lg"
-            placeholder="Buscar tarefas"
-          />
+
+          <div>
+            <input
+              type="text"
+              class="pl-2 py-2 outline-none border-2 rounded-lg"
+              placeholder="Buscar tarefas"
+            />
+            <button
+              type="button"
+              class="p-2 w-10 bg-transparent border-2 rounded-lg hover:border-teal-700 transition"
+            >
+              <i class="bi bi-search text-zinc-400"></i>
+            </button>
+          </div>
         </div>
-  <h1 class="text-2xl text-zinc-900 font-bold ">Suas Tarefas</h1>
+        <h1 class="text-2xl text-zinc-900 font-bold">Suas Tarefas</h1>
         <div
           id="task-list"
-          class="w-11/12 lg:w-[61%] h-[70%] flex flex-wrap justify-center  p-6 gap-10 overflow-y-auto border-t-1 border-teal-950"
+          class="max-2xl:w-4/5  max-2xl:justify-center lg:max-w-max 2xl:w-[67%] h-auto flex flex-wrap p-4 gap-10 border-t-1 border-teal-950 overflow-y-auto [&::-webkit-scrollbar]:w-2  [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:bg-gray-300 dark:[&::-webkit-scrollbar-track]:bg-neutral-300 dark:[&::-webkit-scrollbar-thumb]:bg-teal-900/50 [&::-webkit-scrollbar-thumb]:rounded-lg"
         ></div>
       </section>
     </main>
@@ -108,6 +117,7 @@
       </p>
     </footer>
 
+    <!-- Modais -->
     <div
       class="absolute top-0 w-full h-full hidden justify-center items-center bg-black/50"
       id="modal-edit-task"
@@ -132,7 +142,10 @@
             rows="4"
             required
           ></textarea>
-          <button type="submit" class="h-10 bg-teal-800 text-white py-1 rounded-md">
+          <button
+            type="submit"
+            class="h-10 bg-teal-800 text-white py-1 rounded-md"
+          >
             Atualizar
           </button>
           <button
@@ -145,18 +158,19 @@
         </form>
       </div>
     </div>
+
     <div
       class="absolute top-0 w-full h-full hidden justify-center items-center bg-black/50"
       id="modal-finish-task"
     >
-      <div class="w-80 h-auto bg-zinc-200 rounded-lg p-4 space-y-3">
-        <h1 class="text-zinc-900 text-xl font-extrabold text-start py-4">
+      <div class="w-max h-auto bg-zinc-200 rounded-lg p-4 space-y-3 shadow-2xl">
+        <h1 class="text-zinc-900 text-lg font-extrabold text-start py-4">
           Deseja Concluir essa Tarefa?
         </h1>
 
         <button
           type="button"
-          class="w-full h-10 bg-green-600 text-white py-1 rounded-md finish-task"
+          class="w-full h-10 bg-teal-700 text-white py-1 rounded-md finish-task"
         >
           Concluir
         </button>
@@ -169,12 +183,13 @@
         </button>
       </div>
     </div>
+
     <div
       class="absolute top-0 w-full h-full hidden justify-center items-center bg-black/50"
       id="modal-remove-task"
     >
-      <div class="w-80 h-auto bg-zinc-200 rounded-lg p-4 space-y-3">
-        <h1 class="text-zinc-900 text-xl font-extrabold text-start py-4">
+      <div class="w-max h-auto bg-zinc-200 rounded-lg p-4 space-y-3 shadow-2xl">
+        <h1 class="text-zinc-900 text-lg font-extrabold text-start py-4">
           Deseja excluir essa tarefa?
         </h1>
 
@@ -196,7 +211,7 @@
 
     <div
       id="alert"
-      class="hidden w-max fixed z-50 h-14 top-32 right-2 lg:top-14 lg:right-5 mt-4 p-4 text-zinc-800-50 bg-zinc-50 border border-teal-700 rounded-md transition-transform transform translate-x-0"
+      class="hidden min-w-60 fixed z-50 h-14 top-32 right-2 lg:top-14 lg:right-5 mt-4 p-4 text-zinc-800-50 bg-zinc-50 border-2 border-teal-900/30 rounded-md transition-transform transform translate-x-0 shadow-xl"
       role="alert"
     ></div>
 
