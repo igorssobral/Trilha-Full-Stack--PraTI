@@ -34,75 +34,69 @@
     </header>
 
     <main class="flex h-svh flex-col items-center">
-      <section class="mt-20">
-        <h1 class="text-zinc-900 text-2xl font-extrabold text-center">
-          Criar Tarefa
-        </h1>
-        <form action="" id="task-form" class="flex flex-col space-y-3">
-          <input
-            type="text"
-            id="task"
-            class="h-8 rounded-md outline-none pl-2"
-            placeholder="Tarefa"
-            required
-          />
-          <textarea
-            name=""
-            id="description"
-            class="rounded-md outline-none p-2"
-            placeholder="Descrição"
-            required
-          ></textarea>
-          <button type="submit" class="bg-teal-700 text-white py-1 rounded-md">
-            Salvar
-          </button>
-        </form>
-      </section>
-
-      <section class="w-full mt-10 flex flex-col items-center">
-        <h1 class='text-2xl text-zinc-900'>Tarefas</h1>
-
-        <div id='task-list' class="w-4/6 h-[400px] flex justify-center flex-wrap gap-4 overflow-y-scroll bg-slate-400">
-          <!-- <div  class="w-60 h-80 bg-zinc-800 rounded-md p-2 flex flex-col gap-1">
-            <h1 class="text-zinc-200">Tarefa</h1>
+      <section
+        class="absolute top-0 w-full h-full z-50 hidden justify-center items-center bg-black/50"
+        id="modal-new-task"
+      >
+        <div class="w-80 h-auto bg-zinc-200 rounded-lg p-4 space-y-4">
+          <h1 class="text-zinc-900 text-2xl font-extrabold text-center">
+            Nova Tarefa
+          </h1>
+          <form action="" id="task-form" class="flex flex-col space-y-3">
             <input
               type="text"
-              class="h-8 rounded-md text-zinc-800 pl-1 bg-zinc-100"
-              disabled
-              value="tarefa"
+              id="task"
+              class="h-10 rounded-md outline-none pl-2 border-2 border-teal-900/20"
+              placeholder="Tarefa"
+              required
             />
-            <h1 class="text-zinc-200">Descriçao</h1>
             <textarea
               name=""
-              id=""
-              rows="3"
-              class="w-full rounded-md text-zinc-800 pl-1 bg-zinc-100"
-              disabled
+              id="description"
+              class="rounded-md outline-none p-2 border-2 border-teal-900/20"
+              placeholder="Descrição"
+              rows='4'
+              required
+            ></textarea>
+            <button
+              type="submit"
+              class="h-10 bg-teal-700 text-white py-1 rounded-md"
             >
-assasa</textarea
+              Salvar
+            </button>
+            <button
+              type="button"
+              onclick="closeModalNewTask()"
+              class="h-10 bg-zinc-700 text-white py-1 rounded-md"
             >
-            <div class="space-y-3">
-              <button
-                type="button"
-                class="w-full h-8 text-zinc-50 bg-green-600 rounded-sm"
-              >
-                Concluir
-              </button>
-              <button
-                type="button"
-                class="w-full h-8 text-zinc-50 bg-slate-500 rounded-sm"
-              >
-                Editar
-              </button>
-              <button
-                type="button"
-                class="w-full h-8 text-zinc-50 bg-red-500 rounded-sm"
-              >
-                Excluir
-              </button>
-            </div>
-          </div> -->
+              Cancelar
+            </button>
+          </form>
         </div>
+      </section>
+
+      <section class="w-full h-[95%] mt-2 flex flex-col items-center space-y-4">
+      
+        <div
+          class="bg-white lg:w-3/5 flex flex-col-reverse gap-2 lg:gap-0 lg:flex-row justify-around items-center p-4 rounded-xl mt-20"
+        >
+          <button
+            class="text-teal-900 w-max p-2 rounded-lg border-2 hover:bg-teal-900 hover:text-zinc-100 transition"
+            onclick='openModalNewTask()'
+          >
+            <i class="bi bi-plus-circle mr-2"></i>Adicionar tarefa
+          </button>
+          <input
+            type="text"
+            class="pl-2 py-2 outline-none border-2 rounded-lg"
+            placeholder="Buscar tarefas"
+          />
+        </div>
+  <h1 class="text-2xl text-zinc-900 font-bold ">Suas Tarefas</h1>
+        <div
+          id="task-list"
+          class="w-11/12 lg:w-[61%] h-[70%] flex flex-wrap justify-center  p-6 gap-10 overflow-y-auto border-t-1 border-teal-950"
+        ></div>
       </section>
     </main>
 
@@ -115,8 +109,94 @@ assasa</textarea
     </footer>
 
     <div
+      class="absolute top-0 w-full h-full hidden justify-center items-center bg-black/50"
+      id="modal-edit-task"
+    >
+      <div class="w-80 h-[400px] bg-zinc-200 rounded-lg p-4">
+        <h1 class="text-zinc-900 text-2xl font-extrabold text-center py-4">
+          Editar Tarefa
+        </h1>
+        <form action="" id="task-update-form" class="flex flex-col space-y-3">
+          <input
+            type="text"
+            id="update-task"
+            class="h-10 rounded-md outline-none pl-2"
+            placeholder="Tarefa"
+            required
+          />
+          <textarea
+            name=""
+            id="update-description"
+            class="rounded-md outline-none p-2"
+            placeholder="Descrição"
+            rows="4"
+            required
+          ></textarea>
+          <button type="submit" class="h-10 bg-teal-800 text-white py-1 rounded-md">
+            Atualizar
+          </button>
+          <button
+            type="button"
+            onclick="closeModalEditTask()"
+            class="h-10 bg-zinc-700 text-white py-1 rounded-md"
+          >
+            Cancelar
+          </button>
+        </form>
+      </div>
+    </div>
+    <div
+      class="absolute top-0 w-full h-full hidden justify-center items-center bg-black/50"
+      id="modal-finish-task"
+    >
+      <div class="w-80 h-auto bg-zinc-200 rounded-lg p-4 space-y-3">
+        <h1 class="text-zinc-900 text-xl font-extrabold text-start py-4">
+          Deseja Concluir essa Tarefa?
+        </h1>
+
+        <button
+          type="button"
+          class="w-full h-10 bg-green-600 text-white py-1 rounded-md finish-task"
+        >
+          Concluir
+        </button>
+        <button
+          type="button"
+          onclick="closeModalFinishTask()"
+          class="w-full h-10 bg-zinc-700 text-white py-1 rounded-md"
+        >
+          Cancelar
+        </button>
+      </div>
+    </div>
+    <div
+      class="absolute top-0 w-full h-full hidden justify-center items-center bg-black/50"
+      id="modal-remove-task"
+    >
+      <div class="w-80 h-auto bg-zinc-200 rounded-lg p-4 space-y-3">
+        <h1 class="text-zinc-900 text-xl font-extrabold text-start py-4">
+          Deseja excluir essa tarefa?
+        </h1>
+
+        <button
+          type="button"
+          class="w-full h-10 bg-red-800 text-white py-1 rounded-md remove-task"
+        >
+          Excluir
+        </button>
+        <button
+          type="button"
+          onclick="closeModalRemoveTask()"
+          class="w-full h-10 bg-zinc-700 text-white py-1 rounded-md"
+        >
+          Cancelar
+        </button>
+      </div>
+    </div>
+
+    <div
       id="alert"
-      class="hidden w-72 fixed z-50 h-14 top-32 right-2 lg:top-14 lg:right-5 mt-4 p-4 text-zinc-800-50 bg-zinc-50 border border-teal-700 rounded transition-transform transform translate-x-0"
+      class="hidden w-max fixed z-50 h-14 top-32 right-2 lg:top-14 lg:right-5 mt-4 p-4 text-zinc-800-50 bg-zinc-50 border border-teal-700 rounded-md transition-transform transform translate-x-0"
       role="alert"
     ></div>
 
