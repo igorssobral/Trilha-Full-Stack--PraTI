@@ -7,8 +7,9 @@ document.addEventListener('DOMContentLoaded', () => {
 document.getElementById('task-form').addEventListener('submit', function (e) {
   e.preventDefault();
 
-  const taskValue = document.getElementById('task').value;
-  const descriptionValue = document.getElementById('description').value;
+  const taskValue = document.getElementById('task').value.trim();
+  const descriptionValue = document.getElementById('description').value.trim();
+
   if (validateTask(taskValue, descriptionValue)) {
     const task = {
       id: Date.now(),
@@ -16,7 +17,7 @@ document.getElementById('task-form').addEventListener('submit', function (e) {
       taskDescription: descriptionValue,
       status: true,
     };
-    console.log('🚀 ~ task:', task);
+
     saveTask(task);
     closeModalNewTask();
     document.getElementById('task-form').reset();
@@ -26,19 +27,21 @@ document.getElementById('task-form').addEventListener('submit', function (e) {
 function validateTask(task, description) {
   let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
 
-  if (task[0] === ' ' || task.length < 4) {
-    notify('Digite uma tarefa válida!');
+  if (task === '' || task.length < 4) {
+    notify('error', 'Digite uma tarefa válida!');
     return false;
   }
-  if (description[0] === ' ' || description.length < 4) {
-    notify('Digite uma descrição válida!');
+  if (description === '' || description.length < 4) {
+    notify('error', 'Digite uma descrição válida!');
     return false;
   }
 
-  const taskExists = tasks.some((t) => t.task === task);
+  const taskExists = tasks.some(
+    (t) => t.task.toLowerCase() === task.toLowerCase()
+  );
 
   if (taskExists) {
-    notify('Essa Tarefa já existe!');
+    notify('error', 'Essa Tarefa já existe!');
     return false;
   }
 
@@ -50,8 +53,8 @@ function saveTask(task) {
 
   tasks.push(task);
   localStorage.setItem('tasks', JSON.stringify(tasks));
-  addCard(task);
-  notify('Tarefa salva com sucesso!');
+  addCard(task, 200);
+  notify('success', 'Tarefa salva com sucesso!');
 }
 
 function finishTask(task) {
@@ -66,13 +69,12 @@ function finishTask(task) {
   if (taskIndex !== -1) {
     tasks[taskIndex].status = false;
     localStorage.setItem('tasks', JSON.stringify(tasks));
-    notify('Tarefa Finalizada!');
+    notify('success', 'Tarefa Finalizada!');
     exibirTarefas();
   }
 }
 
 function updateTask(taskId) {
-  console.log('🚀 ~ updateTask ~ taskId:', taskId);
   let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
 
   const updatedTaskName = document.getElementById('update-task').value.trim();
@@ -81,16 +83,19 @@ function updateTask(taskId) {
     .value.trim();
 
   if (updatedTaskName === '' || updatedDescription === '') {
-    notify('Erro: Preencha todos os campos!');
+    notify('error', 'Preencha todos os campos!');
     return;
   }
 
   const taskIndex = tasks.findIndex((t) => t.id === taskId);
   const taskt = tasks.find((t) => t.id === taskId);
-  const taskExists = tasks.some((t) => t.task === taskt.task);
+  const taskExists = tasks.filter((t) => t.id !== taskt.id);
 
-  if (taskExists) {
-    notify('Ja existe uma tarefa com esse nome!');
+  if (
+    taskExists &&
+    taskExists[0].task.toLowerCase() === updatedTaskName.toLowerCase()
+  ) {
+    notify('error', 'Ja existe uma tarefa com esse nome!');
 
     return;
   }
@@ -101,19 +106,17 @@ function updateTask(taskId) {
     localStorage.setItem('tasks', JSON.stringify(tasks));
 
     closeModalEditTask();
-    notify('Tarefa Atualizada!');
+    notify('success', 'Tarefa Atualizada!');
     exibirTarefas();
   } else {
-    notify('Erro: Tarefa não encontrada!');
+    notify('error', 'Tarefa não encontrada!');
   }
 }
 
 function deleteTask(task) {
-  console.log('🚀 ~ updateTask ~ task:', task);
   let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
-  console.log('🚀 ~ deleteTask ~ tasks:', tasks);
 
-  const newListTask = tasks.filter((t) => t.task !== task.task);
+  const newListTask = tasks.filter((t) => t.id !== task.id);
 
   localStorage.setItem('tasks', JSON.stringify(newListTask));
   exibirTarefas();
@@ -122,109 +125,38 @@ function deleteTask(task) {
 function exibirTarefas() {
   let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
   const tasksSorted = tasks.sort((a, b) => a.task.localeCompare(b.task));
-console.log(tasks.length)
   const taskList = document.getElementById('task-list');
-  tasks.length < 4
-    ? taskList.classList.add('justify-center')
-    : taskList.classList.add('justify-start');
+
   taskList.innerHTML = '';
 
   tasksSorted.forEach((task, index) => {
-    addCard(task);
+    addCard(task, index);
   });
 }
 
-function openModalNewTask() {
-  const modal = document.getElementById('modal-new-task');
-
-  modal.classList.remove('hidden');
-  modal.classList.add('flex');
-}
-
-function closeModalNewTask() {
-  const modal = document.getElementById('modal-new-task');
-  modal.classList.remove('flex');
-  modal.classList.add('hidden');
-}
-function openModalEditTask(task) {
-  const modal = document.getElementById('modal-edit-task');
-
-  const taskInput = document.getElementById('update-task');
-  const descriptionInput = document.getElementById('update-description');
-
-  taskInput.value = task.task;
-  descriptionInput.value = task.taskDescription;
-
-  modal.classList.remove('hidden');
-  modal.classList.add('flex');
-
-  document.getElementById('task-update-form').onsubmit = function (e) {
-    e.preventDefault();
-    updateTask(task.id);
-  };
-}
-
-function closeModalEditTask() {
-  const modal = document.getElementById('modal-edit-task');
-  modal.classList.remove('flex');
-  modal.classList.add('hidden');
-}
-
-function openModalRemoveTask(task) {
-  const modal = document.getElementById('modal-remove-task');
-
-  modal.classList.remove('hidden');
-  modal.classList.add('flex');
-
-  modal.querySelector('.remove-task').addEventListener('click', function () {
-    deleteTask(task);
-    closeModalRemoveTask();
-    notify('Tarefa excluida com sucesso!');
-  });
-}
-
-function closeModalRemoveTask() {
-  const modal = document.getElementById('modal-remove-task');
-  modal.classList.remove('flex');
-  modal.classList.add('hidden');
-}
-function openModalFinishTask(task) {
-  const modal = document.getElementById('modal-finish-task');
-
-  modal.classList.remove('hidden');
-  modal.classList.add('flex');
-
-  modal.querySelector('.finish-task').addEventListener('click', function () {
-    finishTask(task);
-    closeModalFinishTask();
-  });
-}
-
-function closeModalFinishTask() {
-  const modal = document.getElementById('modal-finish-task');
-  modal.classList.remove('flex');
-  modal.classList.add('hidden');
-}
-
-function addCard(task) {
+function addCard(task, index) {
   const taskList = document.getElementById('task-list');
 
   const cardTask = document.createElement('div');
+
+  // cardTask.setAttribute('data-aos', 'fade-up');
+  // cardTask.setAttribute('data-aos-delay', (index * 300).toString());
+
   cardTask.className =
-    'w-[300px] lg:w-60 max-h-[350px] bg-zinc-50 rounded-xl p-4 flex flex-col gap-1 shadow-xl border-2 border-teal-900/20';
+    'w-[300px] lg:w-[280px] max-h-[500px] bg-zinc-50 rounded-xl p-4 flex flex-col gap-1 shadow-xl border-2 border-teal-900/20';
 
   cardTask.innerHTML = `
     <h1 class="text-zinc-900">Tarefa</h1>
     <input
       type="text"
-      class="h-10 rounded-md text-zinc-800 pl-1  border-2 border-teal-900/10"
+      class="h-10 w rounded-md text-zinc-500 pl-1  border-2 border-teal-900/10"
       disabled
       value="${task.task}"
     />
     <h1 class="text-zinc-900">Descrição</h1>
     <textarea
-      rows="3"
-      class="w-full rounded-md text-zinc-800 pl-1  border-2 border-teal-900/10"
+      rows="4"
+      class="w-full rounded-md text-zinc-500 pl-1  border-2 border-teal-900/10 resize-none [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:rounded-xl [&::-webkit-scrollbar-track]:bg-neutral-200 [&::-webkit-scrollbar-thumb]:bg-teal-900/50 [&::-webkit-scrollbar-thumb]:rounded-lg"
       disabled
     >${task.taskDescription}</textarea>
     
@@ -234,9 +166,9 @@ function addCard(task) {
         ${task.status ? '' : 'disabled'}
         class="w-full h-9 ${
           task.status
-            ? 'text-zinc-50 bg-teal-700'
-            : 'text-green-500 border-2 border-green-500/20'
-        } rounded-md transition duration-1000 finish-task"
+            ? 'text-zinc-50 bg-teal-700 hover:bg-teal-800'
+            : 'text-green-500 border-2 border-green-500/20 font-bold'
+        } rounded-md transition  finish-task"
       >
         ${
           task.status
@@ -246,7 +178,7 @@ function addCard(task) {
       </button>
       <button
         type="button"
-        class="w-full h-9 text-zinc-50 bg-zinc-700 rounded-md  ${
+        class="w-full h-9 text-zinc-50 bg-zinc-700 hover:bg-zinc-800 rounded-md transition   ${
           task.status ? 'none' : 'hidden'
         } edit-task "
       >
@@ -254,7 +186,7 @@ function addCard(task) {
       </button>
       <button
         type="button"
-        class="w-full h-9 text-zinc-50 bg-red-500 rounded-md delete-task"
+        class="w-full h-9 text-zinc-50 bg-red-700 hover:bg-red-900 transition rounded-md delete-task"
       >
         Excluir
       </button>
@@ -276,11 +208,18 @@ function addCard(task) {
   });
 }
 
-function notify(note) {
+function notify(status, note) {
   const alertDiv = document.getElementById('alert');
 
-  alertDiv.innerHTML = `<i class="bi bi-check-circle-fill mr-1"></i> ${note}`;
-  alertDiv.classList.remove('text-red-800', 'bg-teal-50');
+  status === 'success'
+    ? alertDiv.classList.add('text-green-500')
+    : alertDiv.classList.add('text-red-500');
+
+  alertDiv.innerHTML = `${
+    status === 'success'
+      ? " <i class='bi bi-check-circle-fill mr-1'></i>"
+      : "<i class='bi bi-x-circle'></i>"
+  } ${note}`;
 
   alertDiv.classList.remove('hidden');
 
@@ -293,6 +232,84 @@ function notify(note) {
 
     setTimeout(() => {
       alertDiv.classList.add('hidden');
-    }, 300);
-  }, 3000);
+      alertDiv.classList.remove('text-green-500');
+      alertDiv.classList.remove('text-red-500');
+    }, 200);
+  }, 2000);
+}
+
+// Modal nova tarefa
+function openModalNewTask() {
+  const modal = document.getElementById('modal-new-task');
+
+  modal.classList.remove('hidden');
+  modal.classList.add('flex');
+}
+function closeModalNewTask() {
+  const modal = document.getElementById('modal-new-task');
+  modal.classList.remove('flex');
+  modal.classList.add('hidden');
+  document.getElementById('task').value = '';
+  document.getElementById('description').value = '';
+}
+
+// Modal editar tarefa
+function openModalEditTask(task) {
+  const modal = document.getElementById('modal-edit-task');
+
+  const taskInput = document.getElementById('update-task');
+  const descriptionInput = document.getElementById('update-description');
+
+  taskInput.value = task.task;
+  descriptionInput.value = task.taskDescription;
+
+  modal.classList.remove('hidden');
+  modal.classList.add('flex');
+
+  document.getElementById('task-update-form').onsubmit = function (e) {
+    e.preventDefault();
+    updateTask(task.id);
+  };
+}
+function closeModalEditTask() {
+  const modal = document.getElementById('modal-edit-task');
+  modal.classList.remove('flex');
+  modal.classList.add('hidden');
+}
+
+// Modal excluir tarefa
+function openModalRemoveTask(task) {
+  const modal = document.getElementById('modal-remove-task');
+
+  modal.classList.remove('hidden');
+  modal.classList.add('flex');
+
+  modal.querySelector('.remove-task').addEventListener('click', function () {
+    deleteTask(task);
+    closeModalRemoveTask();
+    notify('success', 'Tarefa excluida com sucesso!');
+  });
+}
+function closeModalRemoveTask() {
+  const modal = document.getElementById('modal-remove-task');
+  modal.classList.remove('flex');
+  modal.classList.add('hidden');
+}
+
+// Modal concluir tarefa
+function openModalFinishTask(task) {
+  const modal = document.getElementById('modal-finish-task');
+
+  modal.classList.remove('hidden');
+  modal.classList.add('flex');
+
+  modal.querySelector('.finish-task').addEventListener('click', function () {
+    finishTask(task);
+    closeModalFinishTask();
+  });
+}
+function closeModalFinishTask() {
+  const modal = document.getElementById('modal-finish-task');
+  modal.classList.remove('flex');
+  modal.classList.add('hidden');
 }
