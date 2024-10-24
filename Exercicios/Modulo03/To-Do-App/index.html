@@ -24,7 +24,7 @@
   </head>
   <body class="bg-zinc-200 antialiased">
     <header
-      class="absolute w-full z-50 h-16 flex items-center justify-center bg-zinc-900 text-white"
+      class="absolute w-full z-50 h-12 flex items-center justify-center bg-zinc-900 text-white"
     >
       <nav>
         <div class="logo">
@@ -33,10 +33,10 @@
       </nav>
     </header>
 
-    <main class="flex h-svh flex-col items-center">
+    <main class="flex h-full flex-col items-center">
       <!-- Modal nova tarefa -->
       <section
-        class="absolute top-0 w-full h-full z-50 hidden justify-center items-center bg-black/50"
+        class="fixed top-0 left-0 w-full h-full z-50 hidden justify-center items-center bg-black/50"
         id="modal-new-task"
       >
         <div class="w-80 h-auto bg-zinc-200 rounded-lg p-4 space-y-4">
@@ -51,10 +51,21 @@
               placeholder="Tarefa"
               required
             />
+            <select
+              name="select-urgency"
+              id="urgency"
+              spellcheck="true"
+              class="h-10 rounded-md text-zinc-950/50 outline-none pl-2 border-2 border-teal-900/20 cursor-pointer"
+            >
+              <option value="" selected disabled>Prioridade</option>
+              <option value="high" class="text-zinc-950">Alta</option>
+              <option value="medium" class="text-zinc-950">Médio</option>
+              <option value="low" class="text-zinc-950">Baixo</option>
+            </select>
             <textarea
-              name=""
+              name="text-description"
               id="description"
-              class="rounded-md outline-none p-2 border-2 border-teal-900/20"
+              class="rounded-md outline-none p-2 border-2 border-teal-900/20 resize-none [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:rounded-xl [&::-webkit-scrollbar-track]:bg-neutral-200 [&::-webkit-scrollbar-thumb]:bg-teal-900/50 [&::-webkit-scrollbar-thumb]:rounded-lg"
               placeholder="Descrição"
               rows="4"
               required
@@ -76,41 +87,58 @@
         </div>
       </section>
 
-      <section class="w-full h-[95%] mt-2 flex flex-col items-center space-y-4">
+      <section class="w-full flex flex-col items-center space-y-4">
         <div
-          class="bg-white max-2xl:w-[90%] 2xl:w-[65%] flex flex-col-reverse gap-2 lg:gap-0 md:flex-row justify-evenly items-center p-4 rounded-xl mt-20"
+          class="bg-white max-2xl:w-[90%] 2xl:w-[65%] flex flex-col gap-2 lg:gap-0 md:flex-row justify-evenly items-center p-4 rounded-xl mt-16"
         >
-          <button
-            class="text-teal-900 w-max p-2 rounded-lg border-2 hover:bg-teal-900 hover:text-zinc-100 transition"
-            onclick="openModalNewTask()"
-          >
-            <i class="bi bi-plus-circle mr-2"></i>Adicionar tarefa
-          </button>
-
           <div>
             <input
               type="text"
-              class="pl-2 py-2 outline-none border-2 rounded-lg"
+              class="pl-2 py-2 outline-none border-2 rounded-lg focus:border-teal-700/20"
               placeholder="Buscar tarefas"
             />
             <button
               type="button"
-              class="p-2 w-10 bg-transparent border-2 rounded-lg hover:border-teal-700 transition"
+              class="p-2 w-10 bg-transparent border-2 rounded-lg hover:border-teal-700/20 transition"
             >
               <i class="bi bi-search text-zinc-400"></i>
             </button>
           </div>
+          <button
+            class="text-teal-900 w-max p-2 rounded-lg border-2 hover:bg-teal-900 hover:text-zinc-100 transition"
+            onclick="openModalNewTask()"
+          >
+            <i class="bi bi-plus-circle mr-2"></i>Nova Tarefa
+          </button>
+
+          <div>
+            <h1 class="text-center font-bold">Prioridades</h1>
+            <div class="flex space-x-4">
+              <div class="flex items-center gap-1">
+                <p class="w-10 h-3 rounded-lg bg-red-700 animate-pulse"></p>
+                Alta
+              </div>
+              <div class="flex items-center gap-1">
+                <p class="w-10 h-3 rounded-lg bg-yellow-400 animate-pulse"></p>
+                Média
+              </div>
+              <div class="flex items-center gap-1">
+                <p class="w-10 h-3 rounded-lg bg-green-600 animate-pulse"></p>
+                Baixa
+              </div>
+            </div>
+          </div>
         </div>
-        <h1 class="text-2xl text-zinc-900 font-bold">Suas Tarefas</h1>
+        <h1 class="text-xl text-zinc-900 font-bold">Suas Tarefas</h1>
         <div
           id="task-list"
-          class="max-2xl:w-4/5  max-2xl:justify-center lg:max-w-max 2xl:w-[67%] h-auto flex flex-wrap p-4 gap-10 border-t-1 border-teal-950 overflow-y-auto [&::-webkit-scrollbar]:w-2  [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:bg-gray-300 dark:[&::-webkit-scrollbar-track]:bg-neutral-300 dark:[&::-webkit-scrollbar-thumb]:bg-teal-900/50 [&::-webkit-scrollbar-thumb]:rounded-lg"
+          class="max-md:w-full max-2xl:w-4/5 max-2xl:justify-center min-h-[450px] lg:max-w-max 2xl:w-[67%] flex flex-wrap lg:p-4 pb-10 gap-8 border-t-1 border-teal-950 xl:overflow-y-auto [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:bg-gray-300 dark:[&::-webkit-scrollbar-track]:bg-neutral-300 dark:[&::-webkit-scrollbar-thumb]:bg-teal-900/50 [&::-webkit-scrollbar-thumb]:rounded-lg"
         ></div>
       </section>
     </main>
 
     <footer
-      class="absolute bottom-0 w-full flex items-center justify-center h-14 bg-zinc-900 text-white text-center text-sm"
+      class="lg:fixed lg:bottom-0 w-full z-50 flex items-center justify-center h-12 bg-zinc-900 text-white text-center text-sm"
     >
       <p class="lg:text-sm">
         &copy; 2024 To-Do APP. Todos os direitos reservados.
@@ -119,10 +147,10 @@
 
     <!-- Modais -->
     <div
-      class="absolute top-0 w-full h-full hidden justify-center items-center bg-black/50"
+      class="fixed top-0 left-0 w-full h-full hidden justify-center items-center bg-black/50"
       id="modal-edit-task"
     >
-      <div class="w-80 h-[400px] bg-zinc-200 rounded-lg p-4">
+      <div class="w-80 h-auto bg-zinc-200 rounded-lg p-4">
         <h1 class="text-zinc-900 text-2xl font-extrabold text-center py-4">
           Editar Tarefa
         </h1>
@@ -130,14 +158,24 @@
           <input
             type="text"
             id="update-task"
-            class="h-10 rounded-md outline-none pl-2"
+            class="h-10 rounded-md outline-none pl-2 border-2 border-teal-900/20"
             placeholder="Tarefa"
             required
           />
+          <select
+            name="select-urgency"
+            id="update-urgency"
+            class="h-10 rounded-md outline-none pl-2 border-2 border-teal-900/20 cursor-pointer"
+          >
+            <option value="" selected disabled>Prioridade</option>
+            <option value="high" class="text-zinc-950">Alta</option>
+            <option value="medium" class="text-zinc-950">Médio</option>
+            <option value="low" class="text-zinc-950">Baixo</option>
+          </select>
           <textarea
             name=""
             id="update-description"
-            class="rounded-md outline-none p-2"
+            class="rounded-md outline-none p-2 border-2 border-teal-900/20 resize-none [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:rounded-xl [&::-webkit-scrollbar-track]:bg-neutral-200 [&::-webkit-scrollbar-thumb]:bg-teal-900/50 [&::-webkit-scrollbar-thumb]:rounded-lg"
             placeholder="Descrição"
             rows="4"
             required
@@ -160,7 +198,7 @@
     </div>
 
     <div
-      class="absolute top-0 w-full h-full hidden justify-center items-center bg-black/50"
+      class="fixed top-0 left-0 w-full h-full hidden justify-center items-center bg-black/50"
       id="modal-finish-task"
     >
       <div class="w-max h-auto bg-zinc-200 rounded-lg p-4 space-y-3 shadow-2xl">
@@ -185,7 +223,7 @@
     </div>
 
     <div
-      class="absolute top-0 w-full h-full hidden justify-center items-center bg-black/50"
+      class="fixed top-0 left-0 w-full h-full hidden justify-center items-center bg-black/50"
       id="modal-remove-task"
     >
       <div class="w-max h-auto bg-zinc-200 rounded-lg p-4 space-y-3 shadow-2xl">
@@ -211,7 +249,7 @@
 
     <div
       id="alert"
-      class="hidden min-w-60 fixed z-50 h-14 top-32 right-2 lg:top-14 lg:right-5 mt-4 p-4 text-zinc-800-50 bg-zinc-50 border-2 border-teal-900/30 rounded-md transition-transform transform translate-x-0 shadow-xl"
+      class="hidden min-w-60 fixed z-50 h-14 top-32 right-2 lg:top-14 lg:right-5 mt-4 p-4 text-zinc-800-50 bg-zinc-50 border-2 border-teal-700/20 rounded-md transition-transform transform translate-x-0 shadow-xl"
       role="alert"
     ></div>
 

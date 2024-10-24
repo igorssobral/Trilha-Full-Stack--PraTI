@@ -8,12 +8,14 @@ document.getElementById('task-form').addEventListener('submit', function (e) {
   e.preventDefault();
 
   const taskValue = document.getElementById('task').value.trim();
+  const urgencyValue = document.getElementById('urgency').value;
   const descriptionValue = document.getElementById('description').value.trim();
 
   if (validateTask(taskValue, descriptionValue)) {
     const task = {
       id: Date.now(),
       task: taskValue,
+      urgency: urgencyValue,
       taskDescription: descriptionValue,
       status: true,
     };
@@ -78,6 +80,7 @@ function updateTask(taskId) {
   let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
 
   const updatedTaskName = document.getElementById('update-task').value.trim();
+  const updatedUrgencyName = document.getElementById('update-urgency').value;
   const updatedDescription = document
     .getElementById('update-description')
     .value.trim();
@@ -101,6 +104,7 @@ function updateTask(taskId) {
   }
   if (taskIndex !== -1) {
     tasks[taskIndex].task = updatedTaskName;
+    tasks[taskIndex].urgency = updatedUrgencyName;
     tasks[taskIndex].taskDescription = updatedDescription;
 
     localStorage.setItem('tasks', JSON.stringify(tasks));
@@ -143,9 +147,16 @@ function addCard(task, index) {
   // cardTask.setAttribute('data-aos-delay', (index * 300).toString());
 
   cardTask.className =
-    'w-[300px] lg:w-[280px] max-h-[500px] bg-zinc-50 rounded-xl p-4 flex flex-col gap-1 shadow-xl border-2 border-teal-900/20';
+    'relative w-[300px] lg:w-[280px] max-h-[380px] bg-zinc-50 rounded-xl p-4 flex flex-col gap-1 shadow-xl border-2 border-teal-900/20 overflow-hidden';
 
   cardTask.innerHTML = `
+  <div class='absolute left-2/4 -translate-x-2/4 top-1 w-[50px] h-3 rounded-md animate-pulse ${
+    task.urgency === 'high'
+      ? 'bg-red-700'
+      : task.urgency === 'medium'
+      ? 'bg-yellow-400'
+      : 'bg-green-600'
+  }'></div>
     <h1 class="text-zinc-900">Tarefa</h1>
     <input
       type="text"
@@ -258,9 +269,11 @@ function openModalEditTask(task) {
   const modal = document.getElementById('modal-edit-task');
 
   const taskInput = document.getElementById('update-task');
+  const urgencyInput = document.getElementById('update-urgency');
   const descriptionInput = document.getElementById('update-description');
 
   taskInput.value = task.task;
+  urgencyInput.value = task.urgency;
   descriptionInput.value = task.taskDescription;
 
   modal.classList.remove('hidden');
