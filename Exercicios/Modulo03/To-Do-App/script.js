@@ -150,7 +150,7 @@ function addCard(task, index) {
     'relative w-[300px] lg:w-[280px] max-h-[380px] bg-zinc-50 rounded-xl p-4 flex flex-col gap-1 shadow-xl border-2 border-teal-900/20 overflow-hidden';
 
   cardTask.innerHTML = `
-  <div class='absolute left-2/4 -translate-x-2/4 top-1 w-[50px] h-3 rounded-md animate-pulse ${
+  <div class='absolute left-2/4 -translate-x-2/4 top-1 w-[50px] h-3 rounded-md animate-pulse  ${
     task.urgency === 'high'
       ? 'bg-red-700'
       : task.urgency === 'medium'
@@ -160,14 +160,14 @@ function addCard(task, index) {
     <h1 class="text-zinc-900">Tarefa</h1>
     <input
       type="text"
-      class="h-10 w rounded-md text-zinc-500 pl-1  border-2 border-teal-900/10"
+      class="h-10 w rounded-md text-zinc-500 pl-1  border-2  border-teal-900/10  ${task.status ? '' : 'line-through'}"
       disabled
       value="${task.task}"
     />
     <h1 class="text-zinc-900">Descrição</h1>
     <textarea
       rows="4"
-      class="w-full rounded-md text-zinc-500 pl-1  border-2 border-teal-900/10 resize-none [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:rounded-xl [&::-webkit-scrollbar-track]:bg-neutral-200 [&::-webkit-scrollbar-thumb]:bg-teal-900/50 [&::-webkit-scrollbar-thumb]:rounded-lg"
+      class="w-full rounded-md text-zinc-500 pl-1  border-2 border-teal-900/10 ${task.status ? '' : 'line-through'}  resize-none [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:rounded-xl [&::-webkit-scrollbar-track]:bg-neutral-200 [&::-webkit-scrollbar-thumb]:bg-teal-900/50 [&::-webkit-scrollbar-thumb]:rounded-lg"
       disabled
     >${task.taskDescription}</textarea>
     
@@ -178,7 +178,7 @@ function addCard(task, index) {
         class="w-full h-9 ${
           task.status
             ? 'text-zinc-50 bg-teal-700 hover:bg-teal-800'
-            : 'text-green-500 border-2 border-green-500/20 font-bold'
+            : 'text-green-500 border-2 border-green-500/20 font-bold '
         } rounded-md transition  finish-task"
       >
         ${
