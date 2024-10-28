@@ -7,9 +7,15 @@ document.addEventListener('DOMContentLoaded', () => {
 document.getElementById('task-form').addEventListener('submit', function (e) {
   e.preventDefault();
 
-  const taskValue = document.getElementById('task').value.trim();
+  const taskValue = document
+    .getElementById('task')
+    .value.trim()
+    .replace(/\s+/g, ' ');
   const urgencyValue = document.getElementById('urgency').value;
-  const descriptionValue = document.getElementById('description').value.trim();
+  const descriptionValue = document
+    .getElementById('description')
+    .value.trim()
+    .replace(/\s+/g, ' ');
 
   if (validateTask(taskValue, descriptionValue)) {
     const task = {
@@ -79,11 +85,15 @@ function finishTask(task) {
 function updateTask(taskId) {
   let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
 
-  const updatedTaskName = document.getElementById('update-task').value.trim();
+  const updatedTaskName = document
+    .getElementById('update-task')
+    .value.trim()
+    .replace(/\s+/g, ' ');
   const updatedUrgencyName = document.getElementById('update-urgency').value;
   const updatedDescription = document
     .getElementById('update-description')
-    .value.trim();
+    .value.trim()
+    .replace(/\s+/g, ' ');
 
   if (updatedTaskName === '' || updatedDescription === '') {
     notify('error', 'Preencha todos os campos!');
@@ -92,16 +102,18 @@ function updateTask(taskId) {
 
   const taskIndex = tasks.findIndex((t) => t.id === taskId);
   const taskt = tasks.find((t) => t.id === taskId);
-  const taskExists = tasks.filter((t) => t.id !== taskt.id);
+  const taskExists = tasks.filter(
+    (t) =>
+      t.id !== taskt.id &&
+      t.task.toLowerCase() === updatedTaskName.toLowerCase()
+  );
 
-  if (
-    taskExists &&
-    taskExists[0].task.toLowerCase() === updatedTaskName.toLowerCase()
-  ) {
+  if (taskExists.length > 0) {
+    console.log('🚀 ~ updateTask ~ taskExists.length > 0:', taskExists.length > 0)
     notify('error', 'Ja existe uma tarefa com esse nome!');
-
     return;
   }
+
   if (taskIndex !== -1) {
     tasks[taskIndex].task = updatedTaskName;
     tasks[taskIndex].urgency = updatedUrgencyName;
@@ -160,14 +172,18 @@ function addCard(task, index) {
     <h1 class="text-zinc-900">Tarefa</h1>
     <input
       type="text"
-      class="h-10 w rounded-md text-zinc-500 pl-1  border-2  border-teal-900/10  ${task.status ? '' : 'line-through'}"
+      class="h-10 w rounded-md text-zinc-500 pl-1  border-2  border-teal-900/10  ${
+        task.status ? '' : 'line-through'
+      }"
       disabled
       value="${task.task}"
     />
     <h1 class="text-zinc-900">Descrição</h1>
     <textarea
       rows="4"
-      class="w-full rounded-md text-zinc-500 pl-1  border-2 border-teal-900/10 ${task.status ? '' : 'line-through'}  resize-none [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:rounded-xl [&::-webkit-scrollbar-track]:bg-neutral-200 [&::-webkit-scrollbar-thumb]:bg-teal-900/50 [&::-webkit-scrollbar-thumb]:rounded-lg"
+      class="w-full rounded-md text-zinc-500 pl-1  border-2 border-teal-900/10 ${
+        task.status ? '' : 'line-through'
+      }  resize-none [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:rounded-xl [&::-webkit-scrollbar-track]:bg-neutral-200 [&::-webkit-scrollbar-thumb]:bg-teal-900/50 [&::-webkit-scrollbar-thumb]:rounded-lg"
       disabled
     >${task.taskDescription}</textarea>
     
