@@ -109,7 +109,6 @@ function updateTask(taskId) {
   );
 
   if (taskExists.length > 0) {
-    console.log('🚀 ~ updateTask ~ taskExists.length > 0:', taskExists.length > 0)
     notify('error', 'Ja existe uma tarefa com esse nome!');
     return;
   }
