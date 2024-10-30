@@ -43,7 +43,7 @@
           <h1 class="text-zinc-900 text-2xl font-extrabold text-center">
             Nova Tarefa
           </h1>
-          <form action="" id="task-form" class="flex flex-col space-y-3">
+          <form action="" id="task-form" class="flex flex-col ">
             <input
               type="text"
               id="task"
@@ -51,12 +51,14 @@
               placeholder="Tarefa"
               required
             />
+            <span class='hidden text-xs text-red-600 ml-3' id='error-task'></span>
             <select
               name="select-urgency"
               id="urgency"
               spellcheck="true"
-              class="h-10 rounded-md text-zinc-950/50 outline-none pl-2 border-2 border-teal-900/20 cursor-pointer"
-            >
+              class="h-10 rounded-md text-zinc-950/50 outline-none pl-2 mt-3 border-2 border-teal-900/20 cursor-pointer"
+              required
+              >
               <option value="" selected disabled>Prioridade</option>
               <option value="high" class="text-zinc-950">Alta</option>
               <option value="medium" class="text-zinc-950">Médio</option>
@@ -65,21 +67,23 @@
             <textarea
               name="text-description"
               id="description"
-              class="rounded-md outline-none p-2 border-2 border-teal-900/20 resize-none [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:rounded-xl [&::-webkit-scrollbar-track]:bg-neutral-200 [&::-webkit-scrollbar-thumb]:bg-teal-900/50 [&::-webkit-scrollbar-thumb]:rounded-lg"
+              class="rounded-md outline-none p-2 mt-3 border-2 border-teal-900/20 resize-none [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:rounded-xl [&::-webkit-scrollbar-track]:bg-neutral-200 [&::-webkit-scrollbar-thumb]:bg-teal-900/50 [&::-webkit-scrollbar-thumb]:rounded-lg"
               placeholder="Descrição"
               rows="4"
               required
             ></textarea>
+            <span class='hidden text-xs text-red-600 ml-3' id='error-desc'></span>
+
             <button
               type="submit"
-              class="h-10 bg-teal-700 text-white py-1 rounded-md"
+              class="h-10 bg-teal-700 text-white py-1 mt-3 rounded-md"
             >
               Salvar
             </button>
             <button
               type="button"
               onclick="closeModalNewTask()"
-              class="h-10 bg-zinc-700 text-white py-1 rounded-md"
+              class="h-10 bg-zinc-700 text-white py-1 mt-3 rounded-md"
             >
               Cancelar
             </button>
@@ -154,7 +158,7 @@
         <h1 class="text-zinc-900 text-2xl font-extrabold text-center py-4">
           Editar Tarefa
         </h1>
-        <form action="" id="task-update-form" class="flex flex-col space-y-3">
+        <form action="" id="task-update-form" class="flex flex-col ">
           <input
             type="text"
             id="update-task"
@@ -162,10 +166,12 @@
             placeholder="Tarefa"
             required
           />
+          <span class='hidden text-xs text-red-600 ml-3' id='error-update-task'></span>
+
           <select
             name="select-urgency"
             id="update-urgency"
-            class="h-10 rounded-md outline-none pl-2 border-2 border-teal-900/20 cursor-pointer  border-blue-500  p-2 bg-white text-gray-800 text-lg focus:border-blue-700 focus:outline-none focus:ring-2 focus:ring-red-300"
+            class="h-10 rounded-md outline-none pl-2 mt-3 border-2 border-teal-900/20 cursor-pointer  "
           >
             <option value="" selected disabled>Prioridade</option>
             <option value="high" class="text-zinc-950">Alta</option>
@@ -175,21 +181,23 @@
           <textarea
             name=""
             id="update-description"
-            class="rounded-md outline-none p-2 border-2 border-teal-900/20 resize-none [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:rounded-xl [&::-webkit-scrollbar-track]:bg-neutral-200 [&::-webkit-scrollbar-thumb]:bg-teal-900/50 [&::-webkit-scrollbar-thumb]:rounded-lg"
+            class="rounded-md outline-none p-2 mt-3 border-2 border-teal-900/20 resize-none [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:rounded-xl [&::-webkit-scrollbar-track]:bg-neutral-200 [&::-webkit-scrollbar-thumb]:bg-teal-900/50 [&::-webkit-scrollbar-thumb]:rounded-lg"
             placeholder="Descrição"
             rows="4"
             required
           ></textarea>
+          <span class='hidden text-xs text-red-600 ml-3' id='error-update-desc'></span>
+
           <button
             type="submit"
-            class="h-10 bg-teal-800 text-white py-1 rounded-md"
+            class="h-10 bg-teal-800 text-white py-1 mt-3 rounded-md"
           >
             Atualizar
           </button>
           <button
             type="button"
             onclick="closeModalEditTask()"
-            class="h-10 bg-zinc-700 text-white py-1 rounded-md"
+            class="h-10 bg-zinc-700 text-white py-1 mt-3 rounded-md"
           >
             Cancelar
           </button>
@@ -249,7 +257,7 @@
 
     <div
       id="alert"
-      class="hidden min-w-60 fixed z-50 h-14 top-32 right-2 lg:top-14 lg:right-5 mt-4 p-4 text-zinc-800-50 bg-zinc-50 border-2 border-teal-700/20 rounded-md transition-transform transform translate-x-0 shadow-xl"
+      class="hidden min-w-60 fixed z-50 h-14 top-32 right-2 lg:top-14 lg:right-5 mt-4 p-4 text-zinc-50 bg-zinc-50 border-2 border-teal-700/20 rounded-md transition-transform transform translate-x-0 shadow-xl"
       role="alert"
     ></div>
 
