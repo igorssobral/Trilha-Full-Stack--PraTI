@@ -17,7 +17,10 @@ document.getElementById('task-form').addEventListener('submit', function (e) {
     .value.trim()
     .replace(/\s+/g, ' ');
 
-  if (validateTask(taskValue, descriptionValue)) {
+  if (
+    validateTask(taskValue, 'error-task') &&
+    validateDescription(descriptionValue, 'error-desc')
+  ) {
     const task = {
       id: Date.now(),
       task: taskValue,
@@ -32,29 +35,80 @@ document.getElementById('task-form').addEventListener('submit', function (e) {
   }
 });
 
-function validateTask(task, description) {
+function validateTask(task, classError) {
+  let errorTask = document.getElementById(classError);
   let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
 
   if (task === '' || task.length < 4) {
-    notify('error', 'Digite uma tarefa válida!');
-    return false;
-  }
-  if (description === '' || description.length < 4) {
-    notify('error', 'Digite uma descrição válida!');
+    errorTask.classList.remove('hidden');
+    errorTask.innerText = 'Digite uma tarefa válida!';
     return false;
   }
 
   const taskExists = tasks.some(
     (t) => t.task.toLowerCase() === task.toLowerCase()
   );
-
   if (taskExists) {
-    notify('error', 'Essa Tarefa já existe!');
+    errorTask.classList.remove('hidden');
+    errorTask.innerText = 'Essa Tarefa já existe!';
+    return false;
+  }
+  errorTask.classList.add('hidden');
+  errorTask.innerText = '';
+  return true;
+}
+function validateUpdateTask(task, taskId, classError) {
+  let errorTask = document.getElementById(classError);
+  let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+
+  if (task === '' || task.length < 4) {
+    errorTask.classList.remove('hidden');
+    errorTask.innerText = 'Digite uma tarefa válida!';
     return false;
   }
 
+  const taskUpdate = tasks.find((t) => t.id === taskId);
+
+  const taskExists = tasks.some(
+    (t) => t.id !== taskUpdate.id && t.task.toLowerCase() === task.toLowerCase()
+  );
+  if (taskExists) {
+    errorTask.classList.remove('hidden');
+    errorTask.innerText = 'Essa Tarefa já existe!';
+    return false;
+  }
+  errorTask.classList.add('hidden');
+  errorTask.innerText = '';
   return true;
 }
+
+function validateDescription(description, classError) {
+  let errorDesc = document.getElementById(classError);
+
+  if (description === '' || description.length < 4) {
+    errorDesc.classList.remove('hidden');
+    errorDesc.innerText = 'Digite uma descrição válida!';
+    return false;
+  }
+
+  errorDesc.classList.add('hidden');
+  errorDesc.innerText = '';
+  return true;
+}
+
+document.getElementById('task').addEventListener('input', function () {
+  validateTask(this.value, 'error-task');
+});
+
+document.getElementById('description').addEventListener('input', function () {
+  validateDescription(this.value, 'error-desc');
+});
+
+document
+  .getElementById('update-description')
+  .addEventListener('input', function () {
+    validateDescription(this.value, 'error-update-desc');
+  });
 
 function saveTask(task) {
   let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
@@ -95,36 +149,25 @@ function updateTask(taskId) {
     .value.trim()
     .replace(/\s+/g, ' ');
 
-  if (updatedTaskName === '' || updatedDescription === '') {
-    notify('error', 'Preencha todos os campos!');
-    return;
-  }
+  if (
+    validateUpdateTask(updatedTaskName, taskId, 'error-update-task') &&
+    validateDescription(updatedDescription, 'error-update-desc')
+  ) {
+    const taskIndex = tasks.findIndex((t) => t.id === taskId);
 
-  const taskIndex = tasks.findIndex((t) => t.id === taskId);
-  const taskt = tasks.find((t) => t.id === taskId);
-  const taskExists = tasks.filter(
-    (t) =>
-      t.id !== taskt.id &&
-      t.task.toLowerCase() === updatedTaskName.toLowerCase()
-  );
+    if (taskIndex !== -1) {
+      tasks[taskIndex].task = updatedTaskName;
+      tasks[taskIndex].urgency = updatedUrgencyName;
+      tasks[taskIndex].taskDescription = updatedDescription;
 
-  if (taskExists.length > 0) {
-    notify('error', 'Ja existe uma tarefa com esse nome!');
-    return;
-  }
+      localStorage.setItem('tasks', JSON.stringify(tasks));
 
-  if (taskIndex !== -1) {
-    tasks[taskIndex].task = updatedTaskName;
-    tasks[taskIndex].urgency = updatedUrgencyName;
-    tasks[taskIndex].taskDescription = updatedDescription;
-
-    localStorage.setItem('tasks', JSON.stringify(tasks));
-
-    closeModalEditTask();
-    notify('success', 'Tarefa Atualizada!');
-    exibirTarefas();
-  } else {
-    notify('error', 'Tarefa não encontrada!');
+      closeModalEditTask();
+      notify('success', 'Tarefa Atualizada!');
+      exibirTarefas();
+    } else {
+      notify('error', 'Tarefa não encontrada!');
+    }
   }
 }
 
@@ -154,8 +197,8 @@ function addCard(task, index) {
 
   const cardTask = document.createElement('div');
 
-  // cardTask.setAttribute('data-aos', 'fade-up');
-  // cardTask.setAttribute('data-aos-delay', (index * 300).toString());
+  cardTask.setAttribute('data-aos', 'fade-up');
+  cardTask.setAttribute('data-aos-delay', (index * 300).toString());
 
   cardTask.className =
     'relative w-[300px] lg:w-[280px] max-h-[380px] bg-zinc-50 rounded-xl p-4 flex flex-col gap-1 shadow-xl border-2 border-teal-900/20 overflow-hidden';
@@ -238,8 +281,8 @@ function notify(status, note) {
   const alertDiv = document.getElementById('alert');
 
   status === 'success'
-    ? alertDiv.classList.add('text-green-500')
-    : alertDiv.classList.add('text-red-500');
+    ? alertDiv.classList.add('bg-green-700')
+    : alertDiv.classList.add('bg-red-700');
 
   alertDiv.innerHTML = `${
     status === 'success'
@@ -258,8 +301,8 @@ function notify(status, note) {
 
     setTimeout(() => {
       alertDiv.classList.add('hidden');
-      alertDiv.classList.remove('text-green-500');
-      alertDiv.classList.remove('text-red-500');
+      alertDiv.classList.remove('bg-green-700');
+      alertDiv.classList.remove('bg-red-700');
     }, 200);
   }, 2000);
 }
@@ -273,10 +316,14 @@ function openModalNewTask() {
 }
 function closeModalNewTask() {
   const modal = document.getElementById('modal-new-task');
+  const errorTask = document.getElementById('error-task');
+  const errorDesc = document.getElementById('error-desc');
   modal.classList.remove('flex');
   modal.classList.add('hidden');
   document.getElementById('task').value = '';
   document.getElementById('description').value = '';
+  errorTask.innerText = '';
+  errorDesc.innerText = '';
 }
 
 // Modal editar tarefa
@@ -298,11 +345,20 @@ function openModalEditTask(task) {
     e.preventDefault();
     updateTask(task.id);
   };
+  document.getElementById('update-task').addEventListener('input', function () {
+    validateUpdateTask(this.value, task.id, 'error-update-task');
+  });
 }
 function closeModalEditTask() {
   const modal = document.getElementById('modal-edit-task');
+  const errorTask = document.getElementById('error-update-task');
+  const errorDesc = document.getElementById('error-update-desc');
   modal.classList.remove('flex');
   modal.classList.add('hidden');
+  document.getElementById('update-task').value = '';
+  document.getElementById('update-description').value = '';
+  errorTask.innerText = '';
+  errorDesc.innerText = '';
 }
 
 // Modal excluir tarefa
