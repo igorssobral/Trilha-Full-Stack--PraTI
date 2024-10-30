@@ -1,5 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
-  AOS.init();
+  AOS.init({
+    once: true,
+  });
   exibirTarefas();
   window.addEventListener('scroll', AOS.refresh);
 });
@@ -12,10 +14,7 @@ document.getElementById('task-form').addEventListener('submit', function (e) {
     .value.trim()
     .replace(/\s+/g, ' ');
   const urgencyValue = document.getElementById('urgency').value;
-  const descriptionValue = document
-    .getElementById('description')
-    .value.trim()
-    .replace(/\s+/g, ' ');
+  const descriptionValue = document.getElementById('description').value;
 
   if (
     validateTask(taskValue, 'error-task') &&
@@ -144,10 +143,8 @@ function updateTask(taskId) {
     .value.trim()
     .replace(/\s+/g, ' ');
   const updatedUrgencyName = document.getElementById('update-urgency').value;
-  const updatedDescription = document
-    .getElementById('update-description')
-    .value.trim()
-    .replace(/\s+/g, ' ');
+  const updatedDescription =
+    document.getElementById('update-description').value;
 
   if (
     validateUpdateTask(updatedTaskName, taskId, 'error-update-task') &&
@@ -185,11 +182,30 @@ function exibirTarefas() {
   const tasksSorted = tasks.sort((a, b) => a.task.localeCompare(b.task));
   const taskList = document.getElementById('task-list');
 
-  taskList.innerHTML = '';
+  function renderTasks(filteredTasks) {
+    taskList.innerHTML = '';
+    filteredTasks.length > 0
+      ? filteredTasks.forEach((task, index) => {
+          addCard(task, index);
+        })
+      : (taskList.innerHTML =
+          '<p class="mt-40"> Nenhuma tarefa encontrada!</p>');
+  }
 
-  tasksSorted.forEach((task, index) => {
-    addCard(task, index);
-  });
+  renderTasks(tasksSorted);
+
+  document
+    .getElementById('search-tasks')
+    .addEventListener('input', function () {
+      const search = this.value.toLowerCase();
+      console.log('🚀 ~ search:', search);
+
+      const filteredTasks = search
+        ? tasksSorted.filter((t) => t.task.toLowerCase().includes(search))
+        : tasksSorted;
+
+      renderTasks(filteredTasks);
+    });
 }
 
 function addCard(task, index) {
@@ -197,8 +213,8 @@ function addCard(task, index) {
 
   const cardTask = document.createElement('div');
 
-  cardTask.setAttribute('data-aos', 'fade-up');
-  cardTask.setAttribute('data-aos-delay', (index * 300).toString());
+  // cardTask.setAttribute('data-aos', 'zoom-in');
+  // cardTask.setAttribute('data-aos-delay', (index * 100).toString());
 
   cardTask.className =
     'relative w-[300px] lg:w-[280px] max-h-[380px] bg-zinc-50 rounded-xl p-4 flex flex-col gap-1 shadow-xl border-2 border-teal-900/20 overflow-hidden';
