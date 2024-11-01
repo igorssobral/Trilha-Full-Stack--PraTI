@@ -213,8 +213,8 @@ function addCard(task, index) {
 
   const cardTask = document.createElement('div');
 
-  // cardTask.setAttribute('data-aos', 'zoom-in');
-  // cardTask.setAttribute('data-aos-delay', (index * 100).toString());
+  cardTask.setAttribute('data-aos', 'zoom-in');
+  cardTask.setAttribute('data-aos-delay', (index * 100).toString());
 
   cardTask.className =
     'relative w-[300px] lg:w-[280px] max-h-[380px] bg-zinc-50 rounded-xl p-4 flex flex-col gap-1 shadow-xl border-2 border-teal-900/20 overflow-hidden';
