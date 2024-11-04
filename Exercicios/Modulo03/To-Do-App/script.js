@@ -114,6 +114,11 @@ function saveTask(task) {
 
   tasks.push(task);
   localStorage.setItem('tasks', JSON.stringify(tasks));
+
+  const noTasksMessage = document.querySelector('#task-list p');
+  if (noTasksMessage) {
+    noTasksMessage.remove();
+  }
   addCard(task, 200);
   notify('success', 'Tarefa salva com sucesso!');
 }
@@ -121,10 +126,6 @@ function saveTask(task) {
 function finishTask(task) {
   let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
 
-  const updatedTask = {
-    ...task,
-    status: false,
-  };
   const taskIndex = tasks.findIndex((t) => t.id === task.id);
 
   if (taskIndex !== -1) {
@@ -181,15 +182,18 @@ function exibirTarefas() {
   let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
   const tasksSorted = tasks.sort((a, b) => a.task.localeCompare(b.task));
   const taskList = document.getElementById('task-list');
+  taskList.innerHTML = '';
 
   function renderTasks(filteredTasks) {
-    taskList.innerHTML = '';
-    filteredTasks.length > 0
-      ? filteredTasks.forEach((task, index) => {
-          addCard(task, index);
-        })
-      : (taskList.innerHTML =
-          '<p class="mt-40"> Nenhuma tarefa encontrada!</p>');
+    if (filteredTasks.length > 0) {
+      taskList.innerHTML = '';
+
+      filteredTasks.forEach((task, index) => {
+        addCard(task, index);
+      });
+    } else {
+      taskList.innerHTML = '<p class="mt-20"> Nenhuma tarefa encontrada!</p>';
+    }
   }
 
   renderTasks(tasksSorted);
@@ -198,7 +202,6 @@ function exibirTarefas() {
     .getElementById('search-tasks')
     .addEventListener('input', function () {
       const search = this.value.toLowerCase();
-      console.log('🚀 ~ search:', search);
 
       const filteredTasks = search
         ? tasksSorted.filter((t) => t.task.toLowerCase().includes(search))
