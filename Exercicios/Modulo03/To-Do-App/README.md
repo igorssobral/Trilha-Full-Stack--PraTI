@@ -5,7 +5,7 @@ Este é um aplicativo de gerenciamento de tarefas simples, desenvolvido para aju
 ## Tecnologias Utilizadas
 
 - **HTML5**: Estrutura do conteúdo da página.
-- **CSS**: Estilização da interface, com o uso do TailwindCSS para design responsivo e personalização rápida.
+- **CSS (TailwindCSS)**: Estilização da interface, com o uso do TailwindCSS para design responsivo e personalização rápida.
 - **JavaScript**: Implementação das funcionalidades interativas, como modais, formulários e manipulação do DOM.
 - **LocalStorage**: Armazenamento persistente das tarefas, garantindo que elas não sejam perdidas ao recarregar a página.
 - **Google Fonts (Inter)**: Tipografia utilizada no aplicativo.
