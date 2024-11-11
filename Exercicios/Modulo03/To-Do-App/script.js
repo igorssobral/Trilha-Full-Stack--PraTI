@@ -96,17 +96,17 @@ function validateDescription(description, classError) {
 }
 
 document.getElementById('task').addEventListener('input', function () {
-  validateTask(this.value, 'error-task');
+  validateTask(this.value.trim().replace(/\s+/g, ' '), 'error-task');
 });
 
 document.getElementById('description').addEventListener('input', function () {
-  validateDescription(this.value, 'error-desc');
+  validateDescription(this.value.trim().replace(/\s+/g, ' '), 'error-desc');
 });
 
 document
   .getElementById('update-description')
   .addEventListener('input', function () {
-    validateDescription(this.value, 'error-update-desc');
+    validateDescription(this.value.trim().replace(/\s+/g, ' '), 'error-update-desc');
   });
 
 function saveTask(task) {
@@ -365,7 +365,7 @@ function openModalEditTask(task) {
     updateTask(task.id);
   };
   document.getElementById('update-task').addEventListener('input', function () {
-    validateUpdateTask(this.value, task.id, 'error-update-task');
+    validateUpdateTask(this.value.trim().replace(/\s+/g, ' '), task.id, 'error-update-task');
   });
 }
 function closeModalEditTask() {
