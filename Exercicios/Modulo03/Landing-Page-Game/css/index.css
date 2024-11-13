@@ -1,871 +1,902 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 :root {
-    --primary: #ff0000;
+  --primary: #ff0000;
 }
 
 body {
-    position: relative;
-    background-color: #000000;
-    font-family: "Roboto", sans-serif;
-    width: 100%;
-    min-height: 100vh;
-    overflow: hidden;
+  position: relative;
+  background-color: #000000;
+  font-family: 'Roboto', sans-serif;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
 }
 
 header {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 100px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
-    z-index: 20;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 20px 100px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  z-index: 20;
 }
-.logos{
-    width: 400px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+.logos {
+  width: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 .logo img {
-    max-width: 60px;
-    max-height: 60px;
-    filter: invert(1);
-    transition: transform 0.5s ease;
+  max-width: 60px;
+  max-height: 60px;
+  filter: invert(1);
+  transition: transform 0.5s ease;
 }
 
 .logo:hover img {
-    transform: rotate(540deg) scale(1.2);
-    transition: transform 0.5s ease;
+  transform: rotate(540deg) scale(1.2);
+  transition: transform 0.5s ease;
 }
 
 .squares img {
-    max-width: 60px;
-    max-height: 60px;
-    color: #fff;
+  max-width: 60px;
+  max-height: 60px;
+  color: #fff;
 }
 
 .nav {
-    display: flex;
-    width: 100%;
-    justify-content: space-around;
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
 }
 
 .nav li {
-    list-style-type: none;
+  list-style-type: none;
 }
 
 .nav li a {
-    color: #fff;
-    text-decoration: none;
-    text-transform: uppercase;
-    font-weight: 300;
-    letter-spacing: 1px;
-    cursor: pointer;
-    padding: 10px;
-    transition: all 0.3s ease-in-out;
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 300;
+  letter-spacing: 1px;
+  cursor: pointer;
+  padding: 10px;
+  transition: all 0.3s ease-in-out;
 }
 
 .nav li:hover a {
-    color: var(--primary);
+  color: var(--primary);
 }
 
-.actions-header{
-    display: flex;
-    align-items: center;
-    gap: 200px;
+.actions-header {
+  display: flex;
+  align-items: center;
+  gap: 150px;
 }
 
 .login button {
-    padding: 10px 20px;
-    border-radius: 5px;
-    border: none;
-    font-weight: bolder;
-    text-transform: uppercase;
-    background-color: var(--primary);
-    color: #fff;
-    cursor: pointer;
-    transition: all 0.2s ease-in-out;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  font-weight: bolder;
+  text-transform: uppercase;
+  background-color: var(--primary);
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
 }
 
 .login button:hover {
-    transform: scale(1.1);
-    color: var(--primary);
-    background-color: #fff;
+  transform: scale(1.1);
+  color: var(--primary);
+  background-color: #fff;
 }
 
 .search {
-    position: relative;
-    width: 130px;
-    height: 40px;
-    transition: 0.5s;
+  position: relative;
+  width: 130px;
+  height: 40px;
+  transition: 0.5s;
 }
 
 .search:hover {
-    width: 300px;
+  width: 300px;
 }
 
 .search input {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    color: #ffffff;
-    background: transparent;
-    border: 1px solid rgba(255, 255, 255, 0.5);
-    outline: none;
-    border-radius: 4px;
-    padding: 0 10px 0 5px;
-    backdrop-filter: blur(10px);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  color: #ffffff;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  outline: none;
+  border-radius: 4px;
+  padding: 0 10px 0 5px;
+  backdrop-filter: blur(10px);
 }
 
 .search input::placeholder {
-    color: #ffffff;
-    text-transform: uppercase;
-    transform: transLateX(5px);
-    font-weight: 300;
+  color: #ffffff;
+  text-transform: uppercase;
+  transform: transLateX(5px);
+  font-weight: 300;
 }
 
 .swiper {
-    position: relative;
-    width: 100%;
-    height: 100vh;
+  position: relative;
+  width: 100%;
+  height: 100vh;
 }
 
 .swiper .swiper-wrapper {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100%;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
 }
 
 .swiper .swiper-wrapper .swiper-slide {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }
 
 .swiper .swiper-wrapper .swiper-slide::before {
-    position: absolute;
-    content: "";
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.726);
-    animation: ping 2s ease-in-out infinite;
+  position: absolute;
+  content: '';
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.726);
+  animation: ping 2s ease-in-out infinite;
 }
 
 @keyframes ping {
-    50% {
-        background: rgba(0, 0, 0, 0.6);
-    }
+  50% {
+    background: rgba(0, 0, 0, 0.6);
+  }
 
-    100% {
-        background: rgba(0, 0, 0, 0.726);
-
-    }
+  100% {
+    background: rgba(0, 0, 0, 0.726);
+  }
 }
 
 .swiper .swiper-wrapper .swiper-slide img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 
 .swiper .swiper-wrapper .swiper-slide .banner {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    min-height: 100vh;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
 
-
-
 .swiper .swiper-wrapper .swiper-slide .banner img {
-    position: absolute;
-    max-width: 700px;
-    z-index: 1;
-    animation: pulse 2s ease-in-out infinite;
+  position: absolute;
+  max-width: 700px;
+  z-index: 1;
+  animation: pulse 2s ease-in-out infinite;
 }
 
 @keyframes pulse {
-    50% {
-        transform: scale(1.01)
-    }
+  50% {
+    transform: scale(1.01);
+  }
 
-    100% {
-        transform: scale(1)
-    }
+  100% {
+    transform: scale(1);
+  }
 }
 
 .swiper .swiper-pagination {
-    position: absolute;
+  position: absolute;
 }
 
 .swiper-controls {
-    position: fixed;
-    display: flex;
-    width: 150px;
-    height: 100px;
-    top: 33.5%;
-    right: 15%;
-    z-index: 100;
+  position: fixed;
+  display: flex;
+  width: 150px;
+  height: 100px;
+  top: 33.5%;
+  right: 15%;
+  z-index: 100;
 }
 
 .swiper .swiper-pagination {
-    position: absolute;
-    width: max-content;
-    height: max-content;
-    top: 37.5%;
-    left: 73%;
+  position: absolute;
+  width: max-content;
+  height: max-content;
+  top: 37.5%;
+  left: 73%;
 }
 
 .swiper-pagination-bullet {
-    width: 15px;
-    height: 15px;
-    border: 1px solid #cccccc8a;
+  width: 15px;
+  height: 15px;
+  border: 1px solid #cccccc8a;
 }
 
 .swiper-pagination-bullet-active {
-    background-color: #b1b1b163;
-    backdrop-filter: blur(10px);
+  background-color: #b1b1b163;
+  backdrop-filter: blur(10px);
 }
 
-.swiper .swiper-button-next, .swiper .swiper-button-prev {
-    position: absolute;
-    width: 60px;
-    height: 60px;
-    z-index: 100;
-    border: 1px solid #cccccc5e;
-    border-radius: 50%;
-    background-color: #b1b1b163;
-    backdrop-filter: blur(10px);
-
-
+.swiper .swiper-button-next,
+.swiper .swiper-button-prev {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  z-index: 100;
+  border: 1px solid #cccccc5e;
+  border-radius: 50%;
+  background-color: #b1b1b163;
+  backdrop-filter: blur(10px);
 }
-
 
 .swiper .swiper-button-next::after,
 .swiper .swiper-button-prev::after {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: rgba(255, 255, 255, 0.5);
-    width: 60px;
-    height: 60px;
-    line-height: 0;
-    background: transparent;
-    border-radius: 50%;
-
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.5);
+  width: 60px;
+  height: 60px;
+  line-height: 0;
+  background: transparent;
+  border-radius: 50%;
 }
 
 .right {
-    max-height: 70vh;
+  max-height: 70vh;
 }
 
 .banner img {
-    max-width: 790px;
-    max-height: 790px;
-    width: 30%;
-    height: 30%;
-    filter: drop-shadow(15px 5px 15px rgba(255, 255, 255, 0.774));
-    animation: shadow 2s ease-in-out infinite;
+  max-width: 790px;
+  max-height: 790px;
+  width: 30%;
+  height: 30%;
+  filter: drop-shadow(15px 5px 15px rgba(255, 255, 255, 0.774));
+  animation: shadow 2s ease-in-out infinite;
 }
 
-
 .swiper .swiper-wrapper .swiper-slide .banner .left {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
 .banner .left .features {
-    max-width: 400px;
-    margin-bottom: 100px;
+  max-width: 400px;
+  margin-bottom: 100px;
 }
 
 .banner .left .features .rating {
-    color: #ffffff;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    margin-bottom: 25px;
+  color: #ffffff;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 25px;
 }
 
 .banner .left .features .rating .score {
-    padding: 15px;
-    font-size: 2rem;
-    font-weight: 400;
-    color: var(--primary);
-    background: #ffffff;
+  padding: 15px;
+  font-size: 2rem;
+  font-weight: 400;
+  color: var(--primary);
+  background: #ffffff;
 }
 
 .banner .left .features .content {
-    margin-left: 20px;
+  margin-left: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: start;
+  z-index: 99;
+}
+
+.banner .left .features .pricing {
+  color: #ffffff;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+
+.banner .left .features .pricing a {
+  display: flex;
+  padding: 13px;
+  font-size: 50px;
+  font-weight: 400;
+  color: #ffffff;
+  background: var(--primary);
+}
+
+.banner .left .features .content {
+  display: flex;
+  gap: 5px;
+}
+
+.banner .left .features .content h4 {
+  color: #ffffff;
+  font-size: 1.5em;
+  font-weight: 400;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.banner .left .features .content span {
+  font-size: 0.7em;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+.banner .left .features .content .subtitle {
+  color: var(--primary);
+}
+
+.banner h1 {
+  color: #ffffff;
+  font-size: 5em;
+  letter-spacing: 5px;
+  line-height: 0.9;
+  z-index: 10;
+  text-transform: uppercase;
+}
+
+.swiper .swiper-wrapper .swiper-slide .banner .right {
+  position: relative;
+  height: 100vh;
+  max-width: 450px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 150px;
+  z-index: 100;
+}
+
+.banner .right .description {
+  padding: 30px 60px 0 0;
+  color: #ffffff;
+}
+
+.banner .right .description li {
+  display: flex;
+  gap: 2px;
+  list-style: none;
+  text-align: start;
+}
+
+.banner .right .description ion-icon {
+  font-size: 1.5rem;
+}
+
+.banner .right .description h4 {
+  display: inline-block;
+  font-size: 1.3em;
+  text-transform: uppercase;
+  font-weight: 400;
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+}
+
+.banner .right .description p {
+  margin: 10px 0 25px 0px;
+  font-weight: 300;
+}
+
+.banner .right h2 {
+  color: #ffffff;
+  font-size: 3.5em;
+  line-height: 1em;
+  font-weight: 400;
+  text-align: right;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.banner .right iframe {
+  max-width: 450px;
+  max-height: 250px;
+}
+
+.icones {
+  position: absolute;
+  display: flex;
+  gap: 20px;
+  bottom: 100px;
+  z-index: 100;
+}
+
+.icones a {
+  cursor: pointer;
+}
+
+.icones ion-icon {
+  font-size: 3.2rem;
+  color: white;
+  transition: all 0.3s ease-in-out;
+}
+
+.icones ion-icon:hover {
+  color: #ff0000;
+  transform: scale(1.1);
+}
+
+.overlay {
+  position: absolute;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #00000094;
+  z-index: 1000;
+}
+
+.modal-form,
+.modal-form-login {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 25%;
+  height: auto;
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.modal-form-login {
+  width: 20%;
+  height: 400px;
+  background-color: #fff;
+  border: 1px solid red;
+}
+
+.modal-form-login > button {
+  color: red;
+}
+
+.modal-form-login form {
+  margin-top: 50px;
+}
+
+.modal-form-login h1 {
+  color: red;
+}
+
+.modal-form-login form input {
+  outline: none;
+}
+
+.modal-form-login form button {
+  height: 35px;
+  margin-top: 20px;
+  border-radius: 5px;
+  border: 1px solid var(--primary);
+  background-color: var(--primary);
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.modal-form-login form button:hover {
+  color: var(--primary);
+  background-color: white;
+}
+.modal-form-login .login-google {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  padding: 5px 10px;
+  gap: 5px;
+  border: 1px solid #00000023;
+  border-radius: 10px;
+}
+.modal-form-login a {
+  text-decoration: none;
+  color: #000000;
+}
+.modal-form-login .login-google > img {
+  position: unset;
+  width: 25px;
+  color: var(--primary);
+  background-color: white;
+}
+
+.modal-form {
+  transition: opacity 0.3s ease;
+}
+
+.modal-form[style*='display: none'] {
+  opacity: 0;
+}
+
+.modal-form[style*='display: flex'] {
+  opacity: 1;
+}
+
+.modal-form > button,
+.modal-form-login > button {
+  position: absolute;
+  top: 20px;
+  right: 15px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 30px;
+  transition: all 0.2s ease-in-out;
+}
+
+.modal-form > button:hover,
+.modal-form-login > button:hover {
+  transform: scale(1.2);
+  color: #ff0000;
+}
+
+.modal-form h1 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.modal-form form,
+.modal-form-login form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-form form label {
+  font-weight: bolder;
+  margin-bottom: 5px;
+}
+
+.modal-form form input,
+.modal-form-login form input {
+  height: 35px;
+  border-radius: 5px;
+  border: 1px solid #5757574d;
+  margin-bottom: 10px;
+  padding-left: 5px;
+  font-size: 1rem;
+}
+
+.modal-form form button {
+  width: 70px;
+  padding: 8px;
+  background-color: #04810b;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.overlay img {
+  position: absolute;
+}
+
+.overlay img:first-of-type {
+  top: 5%;
+  right: 10%;
+}
+
+.overlay img:nth-of-type(2) {
+  bottom: 10%;
+  left: 43%;
+}
+
+.overlay img:last-of-type {
+  top: 10%;
+  left: 10%;
+}
+@media (max-width: 1566px) {
+  .logos {
+    width: 20%;
+  }
+
+  .logo img {
+    max-width: 40px;
+    max-height: 40px;
+  }
+  .nav li {
+    width: max-content;
+  }
+  .nav li a {
+    font-size: 0.9rem;
+  }
+
+  .actions-header {
+    gap: 10px;
+    display: flex;
+    align-items: center;
+  }
+  .modal-form-login {
+    width: 30%;
+  }
+}
+
+@media (max-width: 1024px) {
+  header {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .logos {
+    width: 100px;
+  }
+
+  .logo img {
+    max-width: 40px;
+    max-height: 40px;
+  }
+  .nav li {
+    width: max-content;
+  }
+  .nav li a {
+    font-size: 0.7rem;
+  }
+
+  .actions-header {
+    gap: 10px;
+    display: flex;
+    align-items: center;
+  }
+
+  .modal-form-login {
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  header {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .logos {
+    width: 100px;
+  }
+
+  .logo img {
+    max-width: 40px;
+    max-height: 40px;
+  }
+  .nav li {
+    width: max-content;
+  }
+  .nav li a {
+    font-size: 0.7rem;
+  }
+
+  .actions-header {
+    gap: 10px;
+    display: flex;
+    align-items: center;
+  }
+
+  .search {
+    transition: none;
+  }
+
+  .swiper .swiper-wrapper .swiper-slide .banner img {
+    max-width: 100%;
+    max-height: 80%;
+    bottom: 0;
+  }
+
+  .banner .left .features {
+    position: absolute;
+    max-width: 220px;
+    margin-bottom: 60px;
+    z-index: 100;
+    top: 190px;
+    left: 2px;
+  }
+  .banner .left .features .rating,
+  .banner .left .features .pricing {
+    padding: 10px;
+    background-color: #00000049;
+    border-radius: 15px;
+  }
+
+  .banner .left .features .rating .score {
+    padding: 5px;
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--primary);
+    background: #ffffff;
+  }
+
+  .banner .left .features .content {
+    margin-left: 10px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: start;
     z-index: 99;
-}
+  }
 
-.banner .left .features .pricing {
+  .banner .left .features .pricing {
     color: #ffffff;
     display: flex;
     justify-content: start;
     align-items: center;
-}
+  }
 
-.banner .left .features .pricing a {
+  .banner .left .features .pricing a {
     display: flex;
-    padding: 13px;
-    font-size: 50px;
+    padding: 5px;
+    font-size: 20px;
     font-weight: 400;
     color: #ffffff;
     background: var(--primary);
-}
+  }
 
-.banner .left .features .content {
+  .banner .left .features .content {
     display: flex;
     gap: 5px;
-}
+  }
 
-.banner .left .features .content h4 {
+  .banner .left .features .content h4 {
     color: #ffffff;
-    font-size: 1.5em;
+    font-size: 1em;
     font-weight: 400;
     letter-spacing: 2px;
     text-transform: uppercase;
-}
+  }
 
-.banner .left .features .content span {
+  .banner .left .features .content span {
     font-size: 0.7em;
     text-transform: uppercase;
     font-weight: 400;
+  }
 
-}
-
-.banner .left .features .content .subtitle {
+  .banner .left .features .content .subtitle {
     color: var(--primary);
-}
+  }
 
-.banner h1 {
-    color: #ffffff;
-    font-size: 5em;
-    letter-spacing: 5px;
-    line-height: 0.9;
-    z-index: 10;
-    text-transform: uppercase;
-}
+  .banner h1 {
+    position: absolute;
+    width: 100%;
+    font-size: 3em;
+    text-align: center;
+    bottom: 70px;
+    left: 0;
+  }
 
-.swiper .swiper-wrapper .swiper-slide .banner .right {
+  .swiper .swiper-wrapper .swiper-slide .banner .right {
     position: relative;
     height: 100vh;
-    max-width: 450px;
+    max-width: 250px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    align-items: flex-end;
-    gap: 150px;
+    gap: 0px;
     z-index: 100;
-}
+    left: 90px;
+  }
 
-.banner .right .description {
-    padding: 30px 60px 0 0;
+  .banner .right .description {
+    padding: 30px 60px 0 3px;
     color: #ffffff;
-}
+    margin-top: 60px;
+    background-color: #00000049;
+    border-radius: 15px;
+  }
 
-
-.banner .right .description li {
+  .banner .right .description li {
     display: flex;
-    gap: 2px;
+    gap: 1px;
     list-style: none;
     text-align: start;
+    font-size: 0.9em;
+  }
 
-}
+  .banner .right .description ion-icon {
+    font-size: 1rem;
+  }
 
-.banner .right .description ion-icon {
-    font-size: 1.5rem;
-}
-
-
-.banner .right .description h4 {
+  .banner .right .description h4 {
     display: inline-block;
-    font-size: 1.3em;
+    font-size: 0.8em;
     text-transform: uppercase;
     font-weight: 400;
     letter-spacing: 1px;
     display: flex;
     align-items: center;
-}
+  }
 
-.banner .right .description p {
+  .banner .right .description p {
     margin: 10px 0 25px 0px;
     font-weight: 300;
+    width: 150px;
+  }
 
-}
-
-.banner .right h2 {
+  .banner .right h2 {
+    width: 150px;
     color: #ffffff;
-    font-size: 3.5em;
+    font-size: 1.5em;
     line-height: 1em;
     font-weight: 400;
-    text-align: right;
+    text-align: left;
     margin-bottom: 20px;
     text-transform: uppercase;
-}
+  }
+  .banner .right .trailer {
+    margin: 0px 60px 50px 0;
+  }
 
+  .banner .right iframe {
+    max-width: 150px;
+    max-height: 100px;
+  }
 
-
-
-.banner .right iframe {
-    max-width: 450px;
-    max-height: 250px;
-}
-
-.icones {
+  .icones {
+    width: 100%;
     position: absolute;
     display: flex;
-    gap: 20px;
-    bottom: 100px;
-}
+    justify-content: center;
+    left: 0;
+    bottom: 10px;
+    z-index: 99;
+  }
 
-.icones a {
+  .icones a {
     cursor: pointer;
-}
+  }
 
-
-.icones ion-icon {
-    font-size: 3.2rem;
+  .icones ion-icon {
+    font-size: 2.2rem;
     color: white;
     transition: all 0.3s ease-in-out;
-}
+  }
 
-.icones ion-icon:hover {
-    color: #ff0000;
-    transform: scale(1.1);
-}
-
-.overlay {
+  .swiper-controls {
     position: absolute;
-    display: none;
-    align-items: center;
-    justify-content: center;
     width: 100%;
-    height: 100vh;
-    top: 0;
-    bottom: 0;
+    height: 60px;
+    top: 80%;
     left: 0;
-    right: 0;
-    background-color: #00000094;
-    z-index: 1000;
-}
+    bottom: 0;
+  }
 
-.modal-form, .modal-form-login {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 25%;
-    height: auto;
-    background-color: #fff;
-    border-radius: 10px;
-    padding: 20px;
-
-}
-
-.modal-form-login {
-    width: 20%;
-    height: 400px;
-    background-color: #fff;
-    border: 1px solid red;
-}
-
-.modal-form-login>button {
-    color: red;
-}
-
-.modal-form-login form {
-    margin-top: 50px;
-}
-
-.modal-form-login h1 {
-    color: red;
-}
-
-
-.modal-form-login form input {
-    outline: none;
-}
-
-.modal-form-login form button {
-    height: 35px;
-    margin-top: 20px;
-    border-radius: 5px;
-    border: 1px solid var(--primary);
-    background-color: var(--primary);
-    color: white;
-    font-size: 1.2rem;
-    cursor: pointer;
-    transition: all 0.2s ease-in-out;
-}
-
-.modal-form-login form button:hover {
-
-    color: var(--primary);
-    background-color: white;
-    
-}
-.modal-form-login .login-google  {
-    display: flex;
-    align-items: center;
-    margin-top: 20px;
-    padding: 5px 10px;
-    gap: 5px;
-    border: 1px solid #00000023;
-    border-radius: 10px;
-    
-}
-.modal-form-login  a  {
-   text-decoration: none;
-   color: #000000;
-    
-}
-.modal-form-login .login-google > img {
-    position: unset;
-    width: 25px;
-    color: var(--primary);
-    background-color: white;
-    
-}
-
-.modal-form {
-    transition: opacity 0.3s ease;
-}
-
-.modal-form[style*="display: none"] {
-    opacity: 0;
-}
-
-.modal-form[style*="display: flex"] {
-    opacity: 1;
-}
-
-.modal-form>button, .modal-form-login>button {
+  .swiper .swiper-pagination {
     position: absolute;
-    top: 20px;
-    right: 15px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: 30px;
-    transition: all 0.2s ease-in-out;
-}
+    width: max-content;
+    height: max-content;
+    top: 590px;
+    left: 170px;
+  }
 
-.modal-form>button:hover, .modal-form-login>button:hover {
-    transform: scale(1.2);
-    color: #ff0000;
-}
-
-
-.modal-form h1 {
-    font-size: 1.5rem;
-    margin-bottom: 20px;
-}
-
-.modal-form form, .modal-form-login form {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-}
-
-.modal-form form label {
-    font-weight: bolder;
-    margin-bottom: 5px;
-}
-
-.modal-form form input, .modal-form-login form input {
-    height: 35px;
-    border-radius: 5px;
-    border: 1px solid #5757574d;
-    margin-bottom: 10px;
-    padding-left: 5px;
-    font-size: 1rem;
-}
-
-.modal-form form button {
-    width: 70px;
-    padding: 8px;
-    background-color: #04810b;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    margin-top: 20px;
-    cursor: pointer;
-}
-
-.overlay img {
-    position: absolute;
-}
-
-.overlay img:first-of-type {
-    top: 5%;
-    right: 10%;
-}
-
-.overlay img:nth-of-type(2) {
-    bottom: 10%;
-    left: 43%;
-}
-
-.overlay img:last-of-type {
-    top: 10%;
-    left: 10%;
-}
-
-@media screen and (max-width: 720px) {
-    header{
-        flex-direction: column;
-        gap: 10px;
-    }
-    .logos{
-        width: 100px;
-      
-    }
-    
-    .logo img{
-        max-width: 40px;
-    max-height: 40px;
-    }
-    .nav li{
-        width: max-content;
-    }
-    .nav li a{
-        font-size: .7rem;
-    }
-
-    .actions-header{
-        gap: 10px;
-        display: flex;
-        align-items: center;
-        
-    }
-
-    .search{
-        transition: none;
-    }
-
-    .swiper .swiper-wrapper .swiper-slide .banner img {
-        max-width: 100%;
-        max-height: 80%;
-        bottom: 0;
-      
-    }
-
-    .banner .left .features {
-        position: absolute;
-        max-width: 200px;
-        margin-bottom: 60px;
-        z-index: 100;
-        top: 190px;
-        left: 2px;
-    }
-    
-  
-    .banner .left .features .rating .score {
-        padding: 5px;
-        font-size: 1rem;
-        font-weight: 400;
-        color: var(--primary);
-        background: #ffffff;
-        
-    }
-    
-    .banner .left .features .content {
-        margin-left: 10px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: start;
-        z-index: 99;
-    }
-    
-    .banner .left .features .pricing {
-        color: #ffffff;
-        display: flex;
-        justify-content: start;
-        align-items: center;
-    }
-    
-    .banner .left .features .pricing a {
-        display: flex;
-        padding: 5px;
-        font-size: 20px;
-        font-weight: 400;
-        color: #ffffff;
-        background: var(--primary);
-    }
-    
-    .banner .left .features .content {
-        display: flex;
-        gap: 5px;
-    }
-    
-    .banner .left .features .content h4 {
-        color: #ffffff;
-        font-size: 1em;
-        font-weight: 400;
-        letter-spacing: 2px;
-        text-transform: uppercase;
-    }
-    
-    .banner .left .features .content span {
-        font-size: 0.7em;
-        text-transform: uppercase;
-        font-weight: 400;
-    
-    }
-    
-    .banner .left .features .content .subtitle {
-        color: var(--primary);
-    }
-    
-    .banner h1 {
-        position: absolute;
-        width: 100%;
-        font-size: 3em;
-        text-align: center;
-        bottom: 70px;
-        left: 0;
-    }
-
-    .swiper .swiper-wrapper .swiper-slide .banner .right {
-        position: relative;
-        height: 100vh;
-        max-width: 250px;
-        display: flex;
-        flex-direction: column;   
-        gap: 0px;
-        z-index: 100;
-        left: 90px;
-    }
-    
-    .banner .right .description {
-        padding: 30px 60px 0 0;
-        color: #ffffff;
-        margin-top: 60px;
-    }
-    
-    
-    .banner .right .description li {
-        display: flex;
-        gap: 2px;
-        list-style: none;
-        text-align: start;
-        font-size: .9em;
-    
-    }
-    
-    .banner .right .description ion-icon {
-        font-size: 1rem;
-    }
-    
-    
-    .banner .right .description h4 {
-        display: inline-block;
-        font-size: .8em;
-        text-transform: uppercase;
-        font-weight: 400;
-        letter-spacing: 1px;
-        display: flex;
-        align-items: center;
-    }
-    
-    .banner .right .description p {
-        margin: 10px 0 25px 0px;
-        font-weight: 300;
-        width: 150px;
-    
-    }
-    
-    .banner .right h2 {
-        width: 150px;
-        color: #ffffff;
-        font-size: 1.5em;
-        line-height: 1em;
-        font-weight: 400;
-        text-align: left;
-        margin-bottom: 20px;
-        text-transform: uppercase;
-    }
-    .banner .right .trailer{
-        margin: 0px 60px 50px 0;
-    }
- 
-    
-    
-    .banner .right iframe {
-        max-width: 150px;
-        max-height: 100px;
-    }
-
-
-    .icones {
-        width: 100%;
-        position: absolute;
-        display: flex;
-        justify-content: center;
-        left: 0;
-        bottom: 10px;
-        z-index: 99;
-    }
-    
-    .icones a {
-        cursor: pointer;
-    }
-    
-    
-    .icones ion-icon {
-        font-size: 2.2rem;
-        color: white;
-        transition: all 0.3s ease-in-out;
-    }
-
-    .swiper-controls {
-        position: absolute;
-        width: 100%;
-        height: 60px;
-        top: 80%;
-        left: 0;
-        bottom: 0;
-       
-    }
-    
-    .swiper .swiper-pagination {
-        position: absolute;
-        width: max-content;
-        height: max-content;
-        top: 590px;
-        left: 170px;
-    }
-    
-}
-@media screen and (max-width: 1024px) {
-  
+  .modal-form-login {
+    width: 80%;
+  }
 }
