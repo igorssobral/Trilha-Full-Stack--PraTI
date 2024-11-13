@@ -574,6 +574,7 @@ header {
   width: 100%;
   display: flex;
   flex-direction: column;
+
 }
 
 .modal-form form label {
@@ -641,8 +642,26 @@ header {
     display: flex;
     align-items: center;
   }
-  .modal-form-login {
+  .modal-form-login,.modal-form {
     width: 30%;
+  }
+  .overlay img {
+    width: 20%;
+  }
+  
+  .overlay img:first-of-type {
+    top: 6%;
+    right: 20%;
+  }
+  
+  .overlay img:nth-of-type(2) {
+    bottom: 5%;
+    left: 40%;
+  }
+  
+  .overlay img:last-of-type {
+    top: 6%;
+    left: 20%;
   }
 }
 
@@ -672,8 +691,27 @@ header {
     align-items: center;
   }
 
-  .modal-form-login {
+  .modal-form-login, .modal-form {
     width: 50%;
+  }
+
+  .overlay img {
+    width: 30%;
+  }
+  
+  .overlay img:first-of-type {
+    top:4%;
+    right: 5%;
+  }
+  
+  .overlay img:nth-of-type(2) {
+    bottom: 5%;
+    left: 28%;
+  }
+  
+  .overlay img:last-of-type {
+    top: 4%;
+    left: 6%;
   }
 }
 
@@ -724,7 +762,7 @@ header {
   .banner .left .features .rating,
   .banner .left .features .pricing {
     padding: 10px;
-    background-color: #00000049;
+    background-color: #00000088;
     border-radius: 15px;
   }
 
@@ -808,7 +846,7 @@ header {
     padding: 30px 60px 0 3px;
     color: #ffffff;
     margin-top: 60px;
-    background-color: #00000049;
+    background-color: #00000088;
     border-radius: 15px;
   }
 
@@ -896,7 +934,26 @@ header {
     left: 170px;
   }
 
-  .modal-form-login {
+  .modal-form-login, .modal-form {
     width: 80%;
+  }
+
+  .overlay img {
+    width: 45%;
+  }
+  
+  .overlay img:first-of-type {
+    top: 8%;
+    right: 5%;
+  }
+  
+  .overlay img:nth-of-type(2) {
+    bottom: 12%;
+    left: 28%;
+  }
+  
+  .overlay img:last-of-type {
+    top: 8%;
+    left: 2%;
   }
 }
