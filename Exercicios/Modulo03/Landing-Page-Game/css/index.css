@@ -565,7 +565,7 @@ header {
 }
 
 .modal-form h1 {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   margin-bottom: 20px;
 }
 
@@ -938,12 +938,19 @@ header {
     width: 80%;
   }
 
+  .modal-form h1 {
+    width: 80%;
+    font-size: 1.1rem;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
   .overlay img {
-    width: 45%;
+    width: 35%;
   }
   
   .overlay img:first-of-type {
-    top: 8%;
+    top: 3%;
     right: 5%;
   }
   
@@ -953,7 +960,7 @@ header {
   }
   
   .overlay img:last-of-type {
-    top: 8%;
+    top: 3%;
     left: 2%;
   }
 }
