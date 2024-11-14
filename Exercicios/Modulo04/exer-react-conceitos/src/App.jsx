@@ -6,6 +6,8 @@ import AlteraCorFundo from './components/layout/AlteraCorFundo';
 import ListaTarefas from './components/layout/ListaTarefas';
 import Temporizador from './components/layout/Temporizador';
 import FiltroDeLista from './components/layout/FiltroDeLista';
+import FormularioRegistro from './components/layout/FormularioRegistro';
+import RequisicaoDadosSimples from './components/layout/RequisicaoDadosSimples';
 
 function App() {
   return (
@@ -18,6 +20,8 @@ function App() {
           <Route path='/ListaTarefas' element={<ListaTarefas />} />
           <Route path='/Temporizador' element={<Temporizador/>} />
           <Route path='/FiltroDeLista' element={<FiltroDeLista/>} />
+          <Route path='/FormRegistro' element={<FormularioRegistro/>} />
+          <Route path='/RequisicaoDados' element={<RequisicaoDadosSimples/>} />
         </Routes>
       </BrowserRouter>
     </>

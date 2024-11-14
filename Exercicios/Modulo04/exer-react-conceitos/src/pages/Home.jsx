@@ -7,7 +7,7 @@ function Home() {
   return (
     <div className='cons'>
       <Title
-        title='Exercício React'
+        title='React'
         desc='Praticando conceitos essenciais do ReactJS '
       />
       <div className='buttons-exer'>
@@ -16,11 +16,11 @@ function Home() {
         <button onClick={() =>navigate('/ListaTarefas')}>Lista de Tarefas</button>
         <button onClick={() =>navigate('/Temporizador')}>Temporizador com useEffect</button>
         <button onClick={() =>navigate('/FiltrodeLista')}>Filtro de Lista</button>
-        <button>Formulário de Registro Simples</button>
-        <button>Aplicação de Requisição de Dados Simples</button>
-        <button>Galeria de Imagens com Visualização Detalhada</button>
-        <button>Timer com Intervalo e Alerta</button>
-        <button>Componentes com Tabs Navegáveis</button>
+        <button onClick={() =>navigate('/FormRegistro')}>Formulário de Registro Simples</button>
+        <button onClick={() =>navigate('/RequisicaoDados')}>Aplicação de Requisição de Dados Simples</button>
+        <button onClick={() =>navigate('')}>Galeria de Imagens com Visualização Detalhada</button>
+        <button onClick={() =>navigate('')}>Timer com Intervalo e Alerta</button>
+        <button onClick={() =>navigate('')}>Componentes com Tabs Navegáveis</button>
       </div>
     </div>
   );
