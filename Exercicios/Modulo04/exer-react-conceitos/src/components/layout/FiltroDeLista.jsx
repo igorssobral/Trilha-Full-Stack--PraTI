@@ -58,7 +58,7 @@ const FiltroDeLista = () => {
         placeholder='Buscar nome'
         onChange={(e) => setSearch(e.target.value)}
       />
-      <div className='grid grid-cols-4 gap-4 w-[500px]'>
+      <div className='grid grid-cols-3 lg:grid-cols-4 gap-4 w-[500px]'>
         {filteredNames.length > 0 ? (
           filteredNames.map((nome, index) => (
             <li
