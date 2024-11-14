@@ -1,6 +1,5 @@
 import { useState } from 'react';
-import Title from '../title/Title';
-import './ContadorSimples.css';
+import Title from '../ui/Title';
 import { useNavigate } from 'react-router-dom';
 
 const ContadorSimples = () => {
@@ -23,7 +22,7 @@ const ContadorSimples = () => {
   return (
     <div>
       <Title title={'Contador Simples'} />
-      <div className='content'>
+      <div className='flex flex-col gap-5'>
         <h1>{count}</h1>
         <div className='button-group'>
           <button onClick={decrementar}>Decrementar -</button>

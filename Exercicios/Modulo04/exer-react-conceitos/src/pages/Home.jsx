@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import Title from '../components/title/Title';
+import Title from '../components/ui/Title';
 import './Home.css';
 function Home() {
 
@@ -15,7 +15,7 @@ function Home() {
         <button onClick={() =>navigate('/AlteraCorFundo')}>Alteração de Cor de Fundo</button>
         <button onClick={() =>navigate('/ListaTarefas')}>Lista de Tarefas</button>
         <button onClick={() =>navigate('/Temporizador')}>Temporizador com useEffect</button>
-        <button>Filtro de Lista</button>
+        <button onClick={() =>navigate('/FiltrodeLista')}>Filtro de Lista</button>
         <button>Formulário de Registro Simples</button>
         <button>Aplicação de Requisição de Dados Simples</button>
         <button>Galeria de Imagens com Visualização Detalhada</button>

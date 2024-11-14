@@ -1,10 +1,11 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
 import Home from './pages/Home';
-import ContadorSimples from './components/contador-simples/ContadorSimples';
-import AlteraCorFundo from './components/altera-cor-fundo/AlteraCorFundo';
-import ListaTarefas from './components/lista-de-tarefas/ListaTarefas';
-import Temporizador from './components/temporizador/Temporizador';
+import ContadorSimples from './components/layout/ContadorSimples';
+import AlteraCorFundo from './components/layout/AlteraCorFundo';
+import ListaTarefas from './components/layout/ListaTarefas';
+import Temporizador from './components/layout/Temporizador';
+import FiltroDeLista from './components/layout/FiltroDeLista';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path='/AlteraCorFundo' element={<AlteraCorFundo />} />
           <Route path='/ListaTarefas' element={<ListaTarefas />} />
           <Route path='/Temporizador' element={<Temporizador/>} />
+          <Route path='/FiltroDeLista' element={<FiltroDeLista/>} />
         </Routes>
       </BrowserRouter>
     </>

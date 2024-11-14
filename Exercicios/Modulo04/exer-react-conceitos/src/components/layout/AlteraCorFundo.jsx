@@ -1,8 +1,6 @@
 import { useState } from 'react';
-import './AlteraCorFundo.css';
-import Title from '../title/Title';
+import Title from '../ui/Title';
 import { useNavigate } from 'react-router-dom';
-
 
 const AlteraCorFundo = () => {
   const [corFundo, setCorFundo] = useState('#fff');
@@ -27,13 +25,12 @@ const AlteraCorFundo = () => {
   };
 
   return (
-    <div className='content'>
+    <div className='flex flex-col items-center gap-5'>
       <Title title='Alteração de Cor de Fundo' />
-      <div className='content'>
-        {/* <h4>Mudança de Cores {mudancaAtiva ? 'Ativada' : 'Desativada'}</h4> */}
+      <div className='flex flex-col gap-5 items-center '>
         <button onClick={MudarCores}>Mudar Cor</button>
         <div
-          className='color-content'
+          className='w-[800px] h-[40vh] rounded-2xl'
           style={{ backgroundColor: corFundo }}
         ></div>
       </div>
