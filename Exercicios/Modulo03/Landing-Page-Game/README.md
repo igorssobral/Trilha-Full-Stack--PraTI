@@ -36,12 +36,12 @@ Antes de rodar o projeto localmente, verifique se você possui as seguintes ferr
 1. **Clone o repositório**:
 
    ```bash
-   git clone https://github.com/jhyago/maisPraTi-2024-02.git
+   git clone https://github.com/igorssobral/Trilha-Full-Stack-MaisPraTI/tree/main/Exercicios/Modulo03/Landing-Page-Game
    ```
 2. **Acesse o diretório do projeto**:
 
 ```bash
-cd maisPraTi-2024-02/2-html-css-js/6-landing-page
+cd Exercicios/Modulo03/Landing-Page-Game
 ```
 3. **Abra o arquivo index.html no seu navegador**:
 
