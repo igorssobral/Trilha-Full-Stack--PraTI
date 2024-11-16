@@ -84,6 +84,10 @@ Abra seu navegador e acesse http://localhost:5173 para ver o projeto em funciona
 
 ## Dependências
 
-- react: 18.x.x
-- react-dom: 18.x.x
-- react-router-dom: 6.x.x
+Este projeto utiliza as seguintes dependências:
+
+- **axios** - Biblioteca para fazer requisições HTTP.
+- **lucide-react** - Conjunto de ícones para React.
+- **react** - Biblioteca JavaScript para construção de interfaces de usuário.
+- **react-dom** - Interface entre o React e o DOM do navegador.
+- **react-router-dom** - Biblioteca para navegação entre páginas em aplicações React.
