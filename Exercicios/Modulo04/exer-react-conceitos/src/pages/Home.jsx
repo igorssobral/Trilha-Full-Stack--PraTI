@@ -1,6 +1,5 @@
 import { useNavigate } from 'react-router-dom';
 import Title from '../components/ui/Title';
-import './Home.css';
 function Home() {
 
     const navigate = useNavigate()
@@ -20,7 +19,7 @@ function Home() {
         <button onClick={() =>navigate('/RequisicaoDados')}>Aplicação de Requisição de Dados Simples</button>
         <button onClick={() =>navigate('/GaleriaDeImagens')}>Galeria de Imagens com Visualização Detalhada</button>
         <button onClick={() =>navigate('/Timer')}>Timer com Intervalo e Alerta</button>
-        <button onClick={() =>navigate('')}>Componentes com Tabs Navegáveis</button>
+        <button onClick={() =>navigate('/Tabs')}>Componentes com Tabs Navegáveis</button>
       </div>
     </div>
   );

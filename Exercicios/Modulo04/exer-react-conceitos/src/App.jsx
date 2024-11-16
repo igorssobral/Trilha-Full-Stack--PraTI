@@ -10,6 +10,7 @@ import FormularioRegistro from './components/layout/FormularioRegistro';
 import RequisicaoDadosSimples from './components/layout/RequisicaoDadosSimples';
 import GaleriaImagens from './components/layout/GaleriaDeImagens';
 import Timer from './components/layout/Timer';
+import Tabs from './components/layout/Tabs';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
           <Route path='/RequisicaoDados' element={<RequisicaoDadosSimples/>} />
           <Route path='/GaleriaDeImagens' element={<GaleriaImagens/>} />
           <Route path='/Timer' element={<Timer/>} />
+          <Route path='/Tabs' element={<Tabs/>} />
         </Routes>
       </BrowserRouter>
     </>
