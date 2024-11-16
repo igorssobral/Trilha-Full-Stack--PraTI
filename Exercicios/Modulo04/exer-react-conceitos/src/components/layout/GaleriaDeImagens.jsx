@@ -76,7 +76,7 @@ const GaleriaImagens = () => {
               <img
                 src={imagemSelecionada}
                 alt='Imagem Ampliada'
-                className='max-w-[300px] max-h-[80vh] object-contain rounded-lg'
+                className='w-[300px] lg:w-full max-h-[80vh] object-contain rounded-lg'
               />
               <button
                 onClick={imagemProxima}
