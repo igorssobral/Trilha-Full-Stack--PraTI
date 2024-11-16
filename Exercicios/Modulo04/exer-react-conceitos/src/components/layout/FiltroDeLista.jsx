@@ -63,7 +63,7 @@ const FiltroDeLista = () => {
           filteredNames.map((nome, index) => (
             <li
               key={index}
-              className='flex items-center justify-center list-none p-4 border border-purple-950 rounded-lg '
+              className='flex items-center justify-center list-none p-4 bg-zinc-900 border border-indigo-500 rounded-lg '
             >
               {nome}
             </li>

@@ -67,7 +67,7 @@ const FormularioRegistro = () => {
         {!isSubmitted ? (
           <form
             onSubmit={handleSubmit}
-            className='flex flex-col gap-4 w-3/6 mt-5'
+            className='flex flex-col gap-4 lg:w-3/6 mt-5'
           >
             <h2 className='text-3xl'>Registro</h2>
             <input

@@ -49,7 +49,7 @@ const GaleriaImagens = () => {
             src={imagem}
             alt={`Imagem ${index + 1}`}
             onClick={() => abrirModal(imagem)}
-            className='max-w-xl max-h-[30vh] object-cover cursor-pointer transition-transform duration-200 hover:scale-105 rounded-lg'
+            className='max-w-sm max-h-[30vh] object-cover cursor-pointer transition-transform duration-200 hover:scale-105 rounded-lg'
           />
         ))}
       </div>
@@ -76,7 +76,7 @@ const GaleriaImagens = () => {
               <img
                 src={imagemSelecionada}
                 alt='Imagem Ampliada'
-                className='max-w-3xl max-h-[80vh] object-contain rounded-lg'
+                className='max-w-[300px] max-h-[80vh] object-contain rounded-lg'
               />
               <button
                 onClick={imagemProxima}

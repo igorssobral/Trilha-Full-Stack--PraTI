@@ -28,8 +28,8 @@ const ContadorSimples = () => {
           <button onClick={decrementar}>Decrementar -</button>
           <button onClick={incrementar}>Incrementar +</button>
         </div>
-        <button onClick={handleBackHome}>Voltar pro Início</button>
-      </div>
+        <button onClick={handleBackHome} >Voltar para a Home</button>
+        </div>
     </div>
   );
 };

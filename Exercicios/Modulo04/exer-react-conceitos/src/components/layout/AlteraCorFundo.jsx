@@ -30,11 +30,11 @@ const AlteraCorFundo = () => {
       <div className='flex flex-col gap-5 items-center '>
         <button onClick={MudarCores}>Mudar Cor</button>
         <div
-          className='w-[800px] h-[40vh] rounded-2xl'
+          className='w-[350px] lg:w-[800px] h-[40vh] rounded-2xl'
           style={{ backgroundColor: corFundo }}
         ></div>
       </div>
-      <button onClick={handleBackHome}>Voltar pro Início</button>
+      <button onClick={handleBackHome} >Voltar para a Home</button>
     </div>
   );
 };
