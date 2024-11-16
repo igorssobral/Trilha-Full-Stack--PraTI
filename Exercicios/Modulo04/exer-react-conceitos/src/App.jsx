@@ -1,5 +1,6 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import './App.css';
+
+// Importando as páginas e componentes que serão renderizados nas rotas
 import Home from './pages/Home';
 import ContadorSimples from './components/layout/ContadorSimples';
 import AlteraCorFundo from './components/layout/AlteraCorFundo';
@@ -15,19 +16,23 @@ import Tabs from './components/layout/Tabs';
 function App() {
   return (
     <>
+      {/* Configuração do roteamento do aplicativo */}
       <BrowserRouter>
         <Routes>
+          {/* Rota principal, exibindo a página Home */}
           <Route path='/' element={<Home />} />
+
+          {/* Definindo rotas para os diferentes componentes/páginas do aplicativo */}
           <Route path='/ContadorSimples' element={<ContadorSimples />} />
           <Route path='/AlteraCorFundo' element={<AlteraCorFundo />} />
           <Route path='/ListaTarefas' element={<ListaTarefas />} />
-          <Route path='/Temporizador' element={<Temporizador/>} />
-          <Route path='/FiltroDeLista' element={<FiltroDeLista/>} />
-          <Route path='/FormRegistro' element={<FormularioRegistro/>} />
-          <Route path='/RequisicaoDados' element={<RequisicaoDadosSimples/>} />
-          <Route path='/GaleriaDeImagens' element={<GaleriaImagens/>} />
-          <Route path='/Timer' element={<Timer/>} />
-          <Route path='/Tabs' element={<Tabs/>} />
+          <Route path='/Temporizador' element={<Temporizador />} />
+          <Route path='/FiltroDeLista' element={<FiltroDeLista />} />
+          <Route path='/FormRegistro' element={<FormularioRegistro />} />
+          <Route path='/RequisicaoDados' element={<RequisicaoDadosSimples />} />
+          <Route path='/GaleriaDeImagens' element={<GaleriaImagens />} />
+          <Route path='/Timer' element={<Timer />} />
+          <Route path='/Tabs' element={<Tabs />} />
         </Routes>
       </BrowserRouter>
     </>
