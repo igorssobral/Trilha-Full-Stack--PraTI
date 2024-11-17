@@ -215,8 +215,9 @@ header {
   position: absolute;
 }
 
+
 .swiper-controls {
-  position: fixed;
+  position: absolute;
   display: flex;
   width: 150px;
   height: 100px;
@@ -229,7 +230,7 @@ header {
   position: absolute;
   width: max-content;
   height: max-content;
-  top: 37.5%;
+  top: 38.5%;
   left: 73%;
 }
 
@@ -718,15 +719,25 @@ header {
 @media screen and (max-width: 720px) {
   header {
     flex-direction: column;
-    gap: 10px;
+    align-items: center;
+    gap: 5px;
+    padding: 10px;
   }
   .logos {
     width: 100px;
+    justify-content: center;
+   
   }
 
   .logo img {
+    max-width: 30px;
+    max-height: 30px;
+  }
+
+  .squares img {
     max-width: 40px;
     max-height: 40px;
+    color: #fff;
   }
   .nav li {
     width: max-content;
@@ -756,44 +767,50 @@ header {
     max-width: 220px;
     margin-bottom: 60px;
     z-index: 100;
-    top: 190px;
+    top: 170px;
     left: 2px;
   }
   .banner .left .features .rating,
   .banner .left .features .pricing {
-    padding: 10px;
-    background-color: #00000088;
+    width: 120px;
+    flex-direction: column;
+    padding: 5px;
+    background-color: #00000070;
     border-radius: 15px;
   }
 
   .banner .left .features .rating .score {
     padding: 5px;
-    font-size: 1rem;
+    font-size: .8rem;
     font-weight: 400;
     color: var(--primary);
     background: #ffffff;
   }
 
   .banner .left .features .content {
-    margin-left: 10px;
+    margin-left: 5px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    align-items: start;
+    align-items: center;
     z-index: 99;
+    text-align: center;
   }
 
   .banner .left .features .pricing {
     color: #ffffff;
+    width: 120px;
     display: flex;
-    justify-content: start;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
+    text-align: center;
   }
 
   .banner .left .features .pricing a {
     display: flex;
     padding: 5px;
-    font-size: 20px;
+    font-size:20px;
     font-weight: 400;
     color: #ffffff;
     background: var(--primary);
@@ -806,14 +823,20 @@ header {
 
   .banner .left .features .content h4 {
     color: #ffffff;
-    font-size: 1em;
+    font-size: .8em;
     font-weight: 400;
     letter-spacing: 2px;
     text-transform: uppercase;
+    
   }
 
   .banner .left .features .content span {
     font-size: 0.7em;
+    text-transform: uppercase;
+    font-weight: 400;
+  }
+  .banner .left .features .content :nth-child(3) {
+    font-size: 0.6em;
     text-transform: uppercase;
     font-weight: 400;
   }
@@ -832,30 +855,35 @@ header {
   }
 
   .swiper .swiper-wrapper .swiper-slide .banner .right {
-    position: relative;
+    position: absolute;
+    right:1px;
     height: 100vh;
-    max-width: 250px;
     display: flex;
     flex-direction: column;
     gap: 0px;
     z-index: 100;
-    left: 90px;
   }
 
   .banner .right .description {
-    padding: 30px 60px 0 3px;
+    display: flex;
+    flex-direction: column;
     color: #ffffff;
-    margin-top: 60px;
-    background-color: #00000088;
+    margin-top: 40px;
+    background-color: #00000044;
     border-radius: 15px;
+    padding: 2px;
+    
   }
 
   .banner .right .description li {
     display: flex;
+    flex-direction: column;
+    align-items: center;
     gap: 1px;
     list-style: none;
-    text-align: start;
-    font-size: 0.9em;
+    text-align: center;
+    font-size: 0.8em;
+    width: max-content;
   }
 
   .banner .right .description ion-icon {
@@ -863,38 +891,37 @@ header {
   }
 
   .banner .right .description h4 {
-    display: inline-block;
     font-size: 0.8em;
     text-transform: uppercase;
     font-weight: 400;
-    letter-spacing: 1px;
     display: flex;
-    align-items: center;
+    justify-content: center;
+    text-align: center;
   }
 
   .banner .right .description p {
     margin: 10px 0 25px 0px;
     font-weight: 300;
-    width: 150px;
+    width: 130px;
   }
 
   .banner .right h2 {
-    width: 150px;
+    width: max-content;
     color: #ffffff;
-    font-size: 1.5em;
+    font-size: 1.2em;
     line-height: 1em;
     font-weight: 400;
-    text-align: left;
-    margin-bottom: 20px;
+    text-align: center;
+    margin-bottom: 10px;
     text-transform: uppercase;
   }
   .banner .right .trailer {
-    margin: 0px 60px 50px 0;
+    margin: 0px 10px 50px 0;
   }
 
   .banner .right iframe {
-    max-width: 150px;
-    max-height: 100px;
+    max-width: 200px;
+    max-height: 110px;
   }
 
   .icones {
@@ -918,21 +945,21 @@ header {
   }
 
   .swiper-controls {
-    position: absolute;
     width: 100%;
-    height: 60px;
-    top: 80%;
     left: 0;
-    bottom: 0;
+    top: 84%;
   }
+
+
 
   .swiper .swiper-pagination {
     position: absolute;
     width: max-content;
     height: max-content;
-    top: 590px;
-    left: 170px;
-  }
+    top: 85%;
+    transform: translate(-50%);
+    left: 50%;
+}
 
   .modal-form-login, .modal-form {
     width: 80%;
