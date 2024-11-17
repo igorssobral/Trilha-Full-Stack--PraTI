@@ -13,7 +13,7 @@ body {
   background-color: #000000;
   font-family: 'Roboto', sans-serif;
   width: 100%;
-  min-height: 100vh;
+  min-height: 100dvh;
   overflow: hidden;
 }
 
@@ -140,7 +140,7 @@ header {
 .swiper {
   position: relative;
   width: 100%;
-  height: 100vh;
+  height: 100dvh;
 }
 
 .swiper .swiper-wrapper {
@@ -189,7 +189,7 @@ header {
   top: 0;
   left: 0;
   width: 100%;
-  min-height: 100vh;
+  min-height: 100dvh;
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -289,7 +289,7 @@ header {
 }
 
 .right {
-  max-height: 70vh;
+  max-height: 60dvh;
 }
 
 .banner img {
@@ -387,7 +387,7 @@ header {
 
 .swiper .swiper-wrapper .swiper-slide .banner .right {
   position: relative;
-  height: 100vh;
+  height: 100dvh;
   max-width: 450px;
   display: flex;
   flex-direction: column;
@@ -472,7 +472,7 @@ header {
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 100vh;
+  height: 100dvh;
   top: 0;
   bottom: 0;
   left: 0;
@@ -891,7 +891,7 @@ header {
   .swiper .swiper-wrapper .swiper-slide .banner .right {
     position: absolute;
     right: 1px;
-    height: 100vh;
+    height: 100dvh;
     display: flex;
     flex-direction: column;
     gap: 0px;
