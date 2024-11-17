@@ -199,7 +199,7 @@ header {
 .swiper .swiper-wrapper .swiper-slide .banner img {
   position: absolute;
   max-width: 700px;
-  z-index: 1;
+  z-index: 0;
   animation: pulse 2s ease-in-out infinite;
 }
 
