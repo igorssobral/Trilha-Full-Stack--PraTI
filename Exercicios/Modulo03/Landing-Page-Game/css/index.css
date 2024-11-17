@@ -989,6 +989,7 @@ header {
     width: 100%;
     top: 85%;
     background-color: #00000094;
+    z-index: 1000;
   }
 
   .swiper-button-prev {
