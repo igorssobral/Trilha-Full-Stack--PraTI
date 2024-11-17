@@ -217,23 +217,13 @@ header {
   position: absolute;
 }
 
-
-/* .swiper-controls {
-  position: absolute;
-  display: flex;
-  width: 150px;
-  height: 100px;
-  top: 33.5%;
-  right: 15%;
-  z-index: 100;
-} */
 .swiper-button-prev, .swiper-button-next {
   position: absolute;
   display: flex;
   width: 150px;
   height: 100px;
   top: 38.5%;
-  z-index: 100;
+  z-index: 50;
 }
 
 .swiper-button-next {
@@ -259,7 +249,7 @@ header {
 }
 
 .swiper-pagination-bullet-active {
-  background-color: #b1b1b163;
+  background-color: #00000000;
   backdrop-filter: blur(10px);
 }
 
@@ -271,8 +261,8 @@ header {
   z-index: 100;
   border: 1px solid #cccccc5e;
   border-radius: 50%;
-  background-color: #b1b1b163;
-  backdrop-filter: blur(10px);
+  background-color: transparent;
+  backdrop-filter: blur(15px);
 }
 
 .swiper .swiper-button-next::after,
@@ -334,7 +324,6 @@ header {
   flex-direction: column;
   justify-content: space-between;
   align-items: start;
-  z-index: 99;
 }
 
 .banner .left .features .pricing {
@@ -381,7 +370,7 @@ header {
   font-size: 5em;
   letter-spacing: 5px;
   line-height: 0.9;
-  z-index: 10;
+  z-index: 99;
   text-transform: uppercase;
 }
 
@@ -394,7 +383,6 @@ header {
   justify-content: space-between;
   align-items: flex-end;
   gap: 150px;
-  z-index: 100;
 }
 
 .banner .right .description {
@@ -798,7 +786,7 @@ header {
     position: absolute;
     max-width: 220px;
     margin-bottom: 60px;
-    z-index: 100;
+    z-index: 50;
     top: 170px;
     left: 2px;
   }
@@ -826,7 +814,7 @@ header {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    z-index: 99;
+    z-index: 50;
     text-align: center;
   }
 
@@ -895,7 +883,7 @@ header {
     display: flex;
     flex-direction: column;
     gap: 0px;
-    z-index: 100;
+    z-index: 10;
   }
 
   .banner .right .description {
@@ -979,12 +967,7 @@ header {
     transition: all 0.3s ease-in-out;
   }
 
-  /* .swiper-controls {
-    width: 100%;
-    left: 0;
-    top: 84%;
-    background-color: #00000094;
-  } */
+
   .swiper-button-prev, .swiper-button-next {
     width: 100%;
     top: 85%;
