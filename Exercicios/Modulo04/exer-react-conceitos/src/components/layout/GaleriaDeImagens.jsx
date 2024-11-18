@@ -3,6 +3,11 @@ import Title from '../ui/Title';
 import { CircleChevronLeft, CircleChevronRight, X } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
+import img1 from '../../assets/img1.jpg';
+import img2 from '../../assets/img2.jpg';
+import img3 from '../../assets/img3.jpg';
+import img4 from '../../assets/img4.jpg';
+
 const GaleriaImagens = () => {
   const navigate = useNavigate();
 
@@ -12,12 +17,7 @@ const GaleriaImagens = () => {
   }
 
   // Lista de URLs de imagens para exibir na galeria
-  const imagens = [
-    'https://placehold.co/800x600?text=Imagem+1',
-    'https://placehold.co/800x600?text=Imagem+2',
-    'https://placehold.co/800x600?text=Imagem+3',
-    'https://placehold.co/800x600?text=Imagem+4',
-  ];
+  const imagens = [img1, img2, img3, img4];
 
   // Estado para gerenciar a imagem atualmente selecionada no modal
   const [imagemSelecionada, setImagemSelecionada] = useState(null);
@@ -55,6 +55,7 @@ const GaleriaImagens = () => {
       <div className='w-3/6 flex flex-wrap justify-center gap-4'>
         {imagens.map((imagem, index) => (
           <img
+          loading='eager'
             key={index}
             src={imagem}
             alt={`Imagem ${index + 1}`}
@@ -93,9 +94,10 @@ const GaleriaImagens = () => {
 
               {/* Imagem ampliada */}
               <img
+              loading='eager'
                 src={imagemSelecionada}
                 alt='Imagem Ampliada'
-                className='w-[300px] lg:w-full max-h-[80vh] object-contain rounded-lg'
+                className='w-[300px] lg:w-[90%] max-h-[80vh] object-contain rounded-lg'
               />
 
               {/* Botão para próxima imagem */}
