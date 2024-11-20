@@ -783,6 +783,7 @@ header {
     width: 100%;
     height: 70dvh;
     bottom: 0;
+    animation: none;
   }
 
   .banner .left .features {
