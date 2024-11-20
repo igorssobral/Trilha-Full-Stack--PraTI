@@ -200,7 +200,7 @@ header {
   position: absolute;
   max-width: 700px;
   z-index: 0;
-  animation: pulse 2s ease-in-out infinite;
+  /* animation: pulse 2s ease-in-out infinite; */
 }
 
 @keyframes pulse {
@@ -295,6 +295,7 @@ header {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  z-index: 200;
 }
 
 .banner .left .features {
@@ -384,7 +385,7 @@ header {
   justify-content: space-between;
   align-items: flex-end;
   gap: 150px;
-  z-index: 100;
+  z-index: 200;
 }
 
 .banner .right .description {
