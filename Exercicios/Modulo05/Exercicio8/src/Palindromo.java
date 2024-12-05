@@ -1,5 +1,9 @@
 import java.util.Scanner;
 
+//2.Crie um programa que leia uma palavra e verifique se ela é um palíndromo
+// (se pode ser lida da mesma forma de trás para frente). Ignore
+//diferenças entre maiúsculas e minúsculas.
+
 public class Palindromo {
     public static void main(String[] args) {
         Scanner leitor = new Scanner(System.in);

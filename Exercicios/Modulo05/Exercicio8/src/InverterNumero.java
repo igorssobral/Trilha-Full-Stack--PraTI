@@ -1,5 +1,8 @@
 import java.util.Scanner;
 
+//4. Crie um programa que leia um número inteiro e exiba o número invertido. Exemplo: se o usuário digitar 1234,
+// o programa deve exibir 4321.
+
 public class InverterNumero {
     public static void main(String[] args) {
         Scanner leitor = new Scanner(System.in);

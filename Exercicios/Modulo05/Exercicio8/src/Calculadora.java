@@ -1,5 +1,9 @@
 import java.util.Scanner;
 
+
+//1. Escreva um programa que peça dois números e um operador (+, -, *, /).
+// Realize a operação indicada e exiba o resultado.
+
 public class Calculadora {
     public static void main(String[] args) {
         Scanner leitor = new Scanner(System.in);
